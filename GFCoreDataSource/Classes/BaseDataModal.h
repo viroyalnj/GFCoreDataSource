@@ -44,7 +44,7 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary *info);
 @interface BaseDataModal : NSObject < ObjectProcessDelegate >
 
 @property (nonatomic, weak)     id <BaseDataModalDelegate>      delegate;
-@property (nonatomic, strong)   NSManagedObjectContext          *managedObjectContext;
+@property (nonatomic, readonly) NSManagedObjectContext          *managedObjectContext;
 
 + (instancetype)sharedClient;
 

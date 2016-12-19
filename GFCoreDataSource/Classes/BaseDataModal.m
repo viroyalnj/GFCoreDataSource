@@ -10,10 +10,12 @@
 
 @interface BaseDataModal () < NSFetchedResultsControllerDelegate >
 
-@property (nonatomic, strong)           NSMutableDictionary             *operations;
+@property (nonatomic, strong)   NSManagedObjectContext          *managedObjectContext;
 
-@property (nonatomic, strong)           NSMutableDictionary             *dicFetchedResultsController;
-@property (nonatomic, strong)           NSMapTable                      *dicDelegate;
+@property (nonatomic, strong)   NSMutableDictionary             *operations;
+
+@property (nonatomic, strong)   NSMutableDictionary             *dicFetchedResultsController;
+@property (nonatomic, strong)   NSMapTable                      *dicDelegate;
 
 @end
 
@@ -24,9 +26,9 @@
     return nil;
 }
 
-- (instancetype)init {
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex {
     if (self = [super init]) {
-        
+        self.managedObjectContext = managedContex;
     }
     
     return self;
