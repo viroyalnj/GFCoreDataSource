@@ -18,5 +18,5 @@ before_install:
 - gem install cocoapods # Since Travis is not always on latest version
 - pod install --verbose --project-directory=Example
 script:
-- xcodebuild clean -destination "platform=iOS Simulator,OS=$OS,name=$name" -workspace Example/GFCoreDataSource.xcworkspace -scheme GFCoreDataSource-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO;
+- xcodebuild clean -destination "platform=iOS Simulator,OS='latest',name=$name" -workspace Example/GFCoreDataSource.xcworkspace -scheme GFCoreDataSource-Example -sdk iphonesimulator9.3 ONLY_ACTIVE_ARCH=NO;
 - pod lib lint GFCoreDataSource.podspec

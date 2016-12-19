@@ -7,7 +7,7 @@
 //
 
 #import "BaseDataModal.h"
-#import "BoxItemEntity.h"
+#import "BoxItemEntity+CoreDataClass.h"
 
 @interface DataSource : BaseDataModal
 
