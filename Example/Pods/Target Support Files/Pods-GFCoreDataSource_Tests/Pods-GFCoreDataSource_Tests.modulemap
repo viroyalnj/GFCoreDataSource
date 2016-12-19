@@ -1,0 +1,6 @@
+framework module Pods_GFCoreDataSource_Tests {
+  umbrella header "Pods-GFCoreDataSource_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

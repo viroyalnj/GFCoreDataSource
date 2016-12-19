@@ -1,0 +1,16 @@
+PODS:
+  - GFCoreDataSource (0.1.0)
+
+DEPENDENCIES:
+  - GFCoreDataSource (from `../`)
+
+EXTERNAL SOURCES:
+  GFCoreDataSource:
+    :path: ../
+
+SPEC CHECKSUMS:
+  GFCoreDataSource: 6f9b133abbc97ac88bad94a5dd51acae95416ac5
+
+PODFILE CHECKSUM: 98ecc2fcc68005905f8dcf847528fbfb11478e82
+
+COCOAPODS: 1.1.1

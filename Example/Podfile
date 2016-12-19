@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'GFCoreDataSource_Example' do
+  pod 'GFCoreDataSource', :path => '../'
+
+  target 'GFCoreDataSource_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
