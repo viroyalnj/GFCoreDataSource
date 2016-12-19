@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^CommonBlock)(BOOL success, NSDictionary *info);
+typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 @class BaseDataModal;
 
