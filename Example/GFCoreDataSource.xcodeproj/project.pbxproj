@@ -24,7 +24,7 @@
 		71413FEE704D280D876F4F77 /* Pods_GFCoreDataSource_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8E886B3ABE855454569250 /* Pods_GFCoreDataSource_Example.framework */; };
 		AEA604B81E07FF8F00058D36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA604B71E07FF8F00058D36 /* LaunchScreen.storyboard */; };
 		AEA604C51E0810BE00058D36 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEA604C31E0810BE00058D36 /* Model.xcdatamodeld */; };
-		AEA604C91E08124000058D36 /* BoxItemEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA604C81E08124000058D36 /* BoxItemEntity.m */; };
+		AEA604CC1E08152F00058D36 /* BoxItemEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA604C81E08124000058D36 /* BoxItemEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -415,7 +415,7 @@
 				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				AEA604C91E08124000058D36 /* BoxItemEntity.m in Sources */,
+				AEA604CC1E08152F00058D36 /* BoxItemEntity.m in Sources */,
 				AEA604C51E0810BE00058D36 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
