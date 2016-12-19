@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## GFCoreDataSource
 
-Copyright (c) 2016 xgf_nj <xgf_nj@viroyal-elec.com>
+Copyright (c) 2016 guofengld <guofengld@viroyal-elec.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

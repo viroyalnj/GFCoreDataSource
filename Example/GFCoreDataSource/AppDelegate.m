@@ -1,18 +1,22 @@
 //
-//  GFAppDelegate.m
+//  AppDelegate.m
 //  GFCoreDataSource
 //
-//  Created by xgf_nj on 12/19/2016.
-//  Copyright (c) 2016 xgf_nj. All rights reserved.
+//  Created by guofengld on 12/19/2016.
+//  Copyright (c) 2016 guofengld. All rights reserved.
 //
 
-#import "GFAppDelegate.h"
+#import "AppDelegate.h"
+#import "ViewController.h"
 
-@implementation GFAppDelegate
+@implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] init];
+    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.rootViewController = [[ViewController alloc] init];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

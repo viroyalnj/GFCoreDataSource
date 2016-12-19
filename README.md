@@ -1,6 +1,6 @@
 # GFCoreDataSource
 
-[![CI Status](http://img.shields.io/travis/xgf_nj/GFCoreDataSource.svg?style=flat)](https://travis-ci.org/xgf_nj/GFCoreDataSource)
+[![CI Status](http://img.shields.io/travis/guofengld/GFCoreDataSource.svg?style=flat)](https://travis-ci.org/guofengld/GFCoreDataSource)
 [![Version](https://img.shields.io/cocoapods/v/GFCoreDataSource.svg?style=flat)](http://cocoapods.org/pods/GFCoreDataSource)
 [![License](https://img.shields.io/cocoapods/l/GFCoreDataSource.svg?style=flat)](http://cocoapods.org/pods/GFCoreDataSource)
 [![Platform](https://img.shields.io/cocoapods/p/GFCoreDataSource.svg?style=flat)](http://cocoapods.org/pods/GFCoreDataSource)
@@ -22,7 +22,7 @@ pod "GFCoreDataSource"
 
 ## Author
 
-xgf_nj, xgf_nj@viroyal-elec.com
+guofengld, guofengld@gmail.com
 
 ## License
 
