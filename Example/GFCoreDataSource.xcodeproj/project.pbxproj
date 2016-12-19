@@ -25,6 +25,8 @@
 		AEA604B81E07FF8F00058D36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA604B71E07FF8F00058D36 /* LaunchScreen.storyboard */; };
 		AEA604C51E0810BE00058D36 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEA604C31E0810BE00058D36 /* Model.xcdatamodeld */; };
 		AEA604CC1E08152F00058D36 /* BoxItemEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA604C81E08124000058D36 /* BoxItemEntity.m */; };
+		AEA604CF1E0817C900058D36 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA604CE1E0817C900058D36 /* DataSource.m */; };
+		AEA604D11E08189C00058D36 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = AEA604D01E08189C00058D36 /* .travis.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,10 +65,12 @@
 		892B15E41E21CD3C5469C027 /* Pods-GFCoreDataSource_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFCoreDataSource_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GFCoreDataSource_Example/Pods-GFCoreDataSource_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8DD60754DD7A4AC823E63C03 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		AEA604B71E07FF8F00058D36 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		AEA604C11E0806B700058D36 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		AEA604C41E0810BE00058D36 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		AEA604C71E08124000058D36 /* BoxItemEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxItemEntity.h; sourceTree = "<group>"; };
 		AEA604C81E08124000058D36 /* BoxItemEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxItemEntity.m; sourceTree = "<group>"; };
+		AEA604CD1E0817C900058D36 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		AEA604CE1E0817C900058D36 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		AEA604D01E08189C00058D36 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		BC8E886B3ABE855454569250 /* Pods_GFCoreDataSource_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GFCoreDataSource_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF20B677D4822215136BA3B0 /* GFCoreDataSource.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GFCoreDataSource.podspec; path = ../GFCoreDataSource.podspec; sourceTree = "<group>"; };
 		ECB9DE2AF2B4AA64EFE9D331 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -186,7 +190,7 @@
 				CF20B677D4822215136BA3B0 /* GFCoreDataSource.podspec */,
 				8DD60754DD7A4AC823E63C03 /* README.md */,
 				ECB9DE2AF2B4AA64EFE9D331 /* LICENSE */,
-				AEA604C11E0806B700058D36 /* .travis.yml */,
+				AEA604D01E08189C00058D36 /* .travis.yml */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -208,6 +212,8 @@
 				AEA604C31E0810BE00058D36 /* Model.xcdatamodeld */,
 				AEA604C71E08124000058D36 /* BoxItemEntity.h */,
 				AEA604C81E08124000058D36 /* BoxItemEntity.m */,
+				AEA604CD1E0817C900058D36 /* DataSource.h */,
+				AEA604CE1E0817C900058D36 /* DataSource.m */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 			files = (
 				AEA604B81E07FF8F00058D36 /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				AEA604D11E08189C00058D36 /* .travis.yml in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +421,7 @@
 			files = (
 				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ViewController.m in Sources */,
+				AEA604CF1E0817C900058D36 /* DataSource.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				AEA604CC1E08152F00058D36 /* BoxItemEntity.m in Sources */,
 				AEA604C51E0810BE00058D36 /* Model.xcdatamodeld in Sources */,
