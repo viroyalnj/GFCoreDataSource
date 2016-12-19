@@ -541,7 +541,7 @@
 				GCC_PREFIX_HEADER = "GFCoreDataSource/GFCoreDataSource-Prefix.pch";
 				INFOPLIST_FILE = "GFCoreDataSource/GFCoreDataSource-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.viroyal.coredatasource;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viroyal.testcoredata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -557,7 +557,7 @@
 				GCC_PREFIX_HEADER = "GFCoreDataSource/GFCoreDataSource-Prefix.pch";
 				INFOPLIST_FILE = "GFCoreDataSource/GFCoreDataSource-Info.plist";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.viroyal.coredatasource;
+				PRODUCT_BUNDLE_IDENTIFIER = com.viroyal.testcoredata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

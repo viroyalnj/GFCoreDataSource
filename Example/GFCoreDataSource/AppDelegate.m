@@ -8,10 +8,21 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import <CoreData/CoreData.h>
+
+@interface AppDelegate ()
+
+@property (nonatomic, strong) NSManagedObjectContext            *managedObjectContext;
+@property (nonatomic, strong) NSPersistentStoreCoordinator      *persistentStoreCoordinate;
+
+@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [self.managedObjectContext save:nil];
+    
     self.window = [[UIWindow alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[ViewController alloc] init];
@@ -45,6 +56,26 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (NSManagedObjectContext *)managedObjectContext {
+    if (!_managedObjectContext) {
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        _managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinate;
+    }
+    
+    return _managedObjectContext;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinate {
+    if (!_persistentStoreCoordinate) {
+        NSURL *urlModel = [[NSBundle mainBundle] URLForResource:@"model"
+                                                  withExtension:@"momd"];
+        NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL:urlModel];
+        _persistentStoreCoordinate = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    }
+    
+    return _persistentStoreCoordinate;
 }
 
 @end
