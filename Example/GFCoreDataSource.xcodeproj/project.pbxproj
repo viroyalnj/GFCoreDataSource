@@ -22,8 +22,9 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71413FEE704D280D876F4F77 /* Pods_GFCoreDataSource_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8E886B3ABE855454569250 /* Pods_GFCoreDataSource_Example.framework */; };
-		AEA604B81E07FF8F00058D36 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA604B71E07FF8F00058D36 /* Launch Screen.storyboard */; };
-		AEA604C21E0806B700058D36 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = AEA604C11E0806B700058D36 /* .travis.yml */; };
+		AEA604B81E07FF8F00058D36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA604B71E07FF8F00058D36 /* LaunchScreen.storyboard */; };
+		AEA604C51E0810BE00058D36 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEA604C31E0810BE00058D36 /* Model.xcdatamodeld */; };
+		AEA604C91E08124000058D36 /* BoxItemEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA604C81E08124000058D36 /* BoxItemEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +62,11 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		892B15E41E21CD3C5469C027 /* Pods-GFCoreDataSource_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFCoreDataSource_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GFCoreDataSource_Example/Pods-GFCoreDataSource_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8DD60754DD7A4AC823E63C03 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		AEA604B71E07FF8F00058D36 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		AEA604B71E07FF8F00058D36 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEA604C11E0806B700058D36 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		AEA604C41E0810BE00058D36 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		AEA604C71E08124000058D36 /* BoxItemEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxItemEntity.h; sourceTree = "<group>"; };
+		AEA604C81E08124000058D36 /* BoxItemEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxItemEntity.m; sourceTree = "<group>"; };
 		BC8E886B3ABE855454569250 /* Pods_GFCoreDataSource_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GFCoreDataSource_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF20B677D4822215136BA3B0 /* GFCoreDataSource.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GFCoreDataSource.podspec; path = ../GFCoreDataSource.podspec; sourceTree = "<group>"; };
 		ECB9DE2AF2B4AA64EFE9D331 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -133,13 +137,14 @@
 		6003F593195388D20070C39A /* Example for GFCoreDataSource */ = {
 			isa = PBXGroup;
 			children = (
+				AEA604C61E08120900058D36 /* Core Data */,
 				6003F59C195388D20070C39A /* AppDelegate.h */,
 				6003F59D195388D20070C39A /* AppDelegate.m */,
 				6003F5A5195388D20070C39A /* ViewController.h */,
 				6003F5A6195388D20070C39A /* ViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
-				AEA604B71E07FF8F00058D36 /* Launch Screen.storyboard */,
+				AEA604B71E07FF8F00058D36 /* LaunchScreen.storyboard */,
 			);
 			name = "Example for GFCoreDataSource";
 			path = GFCoreDataSource;
@@ -195,6 +200,16 @@
 				F95FEE6BC592B543A65D298C /* Pods-GFCoreDataSource_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AEA604C61E08120900058D36 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				AEA604C31E0810BE00058D36 /* Model.xcdatamodeld */,
+				AEA604C71E08124000058D36 /* BoxItemEntity.h */,
+				AEA604C81E08124000058D36 /* BoxItemEntity.m */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,9 +298,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEA604B81E07FF8F00058D36 /* Launch Screen.storyboard in Resources */,
+				AEA604B81E07FF8F00058D36 /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
-				AEA604C21E0806B700058D36 /* .travis.yml in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +415,8 @@
 				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* ViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				AEA604C91E08124000058D36 /* BoxItemEntity.m in Sources */,
+				AEA604C51E0810BE00058D36 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +638,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AEA604C31E0810BE00058D36 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AEA604C41E0810BE00058D36 /* Model.xcdatamodel */,
+			);
+			currentVersion = AEA604C41E0810BE00058D36 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6003F582195388D10070C39A /* Project object */;
 }

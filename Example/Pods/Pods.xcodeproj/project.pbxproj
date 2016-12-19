@@ -17,6 +17,7 @@
 		79125B2B951E46993BAB5F022594345F /* ObjectProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = B01D136A189F1FBB97FC08B66003877B /* ObjectProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A98564A34313CAFE277755457C5B370 /* Pods-GFCoreDataSource_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 373E40933D63929723C0119C3EB219DC /* Pods-GFCoreDataSource_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D758061E1DDF01866446009EDF0A22D /* Pods-GFCoreDataSource_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B42C13A76327D4F3FE6E1E44CC35478 /* Pods-GFCoreDataSource_Example-dummy.m */; };
+		AEA604CB1E08131100058D36 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA604CA1E08131100058D36 /* CoreData.framework */; };
 		C09E7A39B8FEA2CBB67CB05E0AFDE483 /* BaseDataModal.h in Headers */ = {isa = PBXBuildFile; fileRef = B49466EBB7C62A4BDAE13890069D501A /* BaseDataModal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EE32A22FCD89A09298DBDCCD7D1F1398 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
 		FC11AF4821EC4B52DFEB5E2851181875 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
@@ -36,34 +37,35 @@
 		00AF440939D7ECA74E077E884B69033E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		019FA7C81BF25F1A8A2C094F611A4CBA /* Pods-GFCoreDataSource_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GFCoreDataSource_Tests-dummy.m"; sourceTree = "<group>"; };
 		0B42C13A76327D4F3FE6E1E44CC35478 /* Pods-GFCoreDataSource_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GFCoreDataSource_Example-dummy.m"; sourceTree = "<group>"; };
-		11DFE6C74F18C960AF0E327B17F97848 /* Pods-GFCoreDataSource_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GFCoreDataSource_Tests.modulemap"; sourceTree = "<group>"; };
-		2092B716A02238F731576FCFAD567C75 /* Pods_GFCoreDataSource_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GFCoreDataSource_Example.framework; path = "Pods-GFCoreDataSource_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		11DFE6C74F18C960AF0E327B17F97848 /* Pods-GFCoreDataSource_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GFCoreDataSource_Tests.modulemap"; sourceTree = "<group>"; };
+		2092B716A02238F731576FCFAD567C75 /* Pods_GFCoreDataSource_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GFCoreDataSource_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24602665701D96BBB06BFC31D70345ED /* Pods-GFCoreDataSource_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GFCoreDataSource_Example.release.xcconfig"; sourceTree = "<group>"; };
 		30C16FEF2E17B922F245FDD46917D591 /* GFCoreDataSource-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GFCoreDataSource-dummy.m"; sourceTree = "<group>"; };
 		373E40933D63929723C0119C3EB219DC /* Pods-GFCoreDataSource_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GFCoreDataSource_Example-umbrella.h"; sourceTree = "<group>"; };
 		3C4758900EFF4710172FD31F993D5413 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4AA49D9214EAD62A48D2D79573C396D1 /* GFCoreDataSource.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GFCoreDataSource.xcconfig; sourceTree = "<group>"; };
 		66395E6043331E0D390D6EC4BAF57BD8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		742A007C8234194332377682FA504BE7 /* GFCoreDataSource.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GFCoreDataSource.modulemap; sourceTree = "<group>"; };
+		742A007C8234194332377682FA504BE7 /* GFCoreDataSource.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GFCoreDataSource.modulemap; sourceTree = "<group>"; };
 		7C4700C2825E1A37B0033DB56F6E8AF1 /* ObjectProcessor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ObjectProcessor.m; sourceTree = "<group>"; };
 		7F9BEEC403406376DDED89A715B40A8C /* Pods-GFCoreDataSource_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GFCoreDataSource_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		81A962547E201705B7A3D26CDE98E8D2 /* Pods-GFCoreDataSource_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GFCoreDataSource_Tests-resources.sh"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96B8DE2BB60202701B2A954A9E2CC719 /* Pods-GFCoreDataSource_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GFCoreDataSource_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9C11AACE84FD19481974FF832F8C873E /* Pods-GFCoreDataSource_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GFCoreDataSource_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A657B1AE3C4DA2A415C029B308620C75 /* Pods-GFCoreDataSource_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GFCoreDataSource_Tests-umbrella.h"; sourceTree = "<group>"; };
+		AEA604CA1E08131100058D36 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		B01D136A189F1FBB97FC08B66003877B /* ObjectProcessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ObjectProcessor.h; sourceTree = "<group>"; };
 		B244BDFA7358D06A59D5C13FC67CA025 /* Pods-GFCoreDataSource_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GFCoreDataSource_Example-frameworks.sh"; sourceTree = "<group>"; };
 		B49466EBB7C62A4BDAE13890069D501A /* BaseDataModal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BaseDataModal.h; sourceTree = "<group>"; };
 		C3F46722C5B2E567F61B16F3E0A84CAB /* Pods-GFCoreDataSource_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GFCoreDataSource_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C52990B4806DA85FB02F2FF0BDC9FB00 /* BaseDataModal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BaseDataModal.m; sourceTree = "<group>"; };
-		C5C426197EC9B67800088E2559545D6E /* Pods_GFCoreDataSource_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GFCoreDataSource_Tests.framework; path = "Pods-GFCoreDataSource_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5C426197EC9B67800088E2559545D6E /* Pods_GFCoreDataSource_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GFCoreDataSource_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA74675B50EE89B9C297B0B333243763 /* GFCoreDataSource-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GFCoreDataSource-prefix.pch"; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D7464A77BACDC99E351E2A465AE65A28 /* Pods-GFCoreDataSource_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GFCoreDataSource_Example.modulemap"; sourceTree = "<group>"; };
+		D7464A77BACDC99E351E2A465AE65A28 /* Pods-GFCoreDataSource_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GFCoreDataSource_Example.modulemap"; sourceTree = "<group>"; };
 		D775F28EE549F5B1C173362845DCCBDC /* Pods-GFCoreDataSource_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GFCoreDataSource_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		E07E32D804E61D5FCC3AA16884360509 /* Pods-GFCoreDataSource_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GFCoreDataSource_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		E663B41A228365405A42AF387DAF586A /* GFCoreDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GFCoreDataSource.framework; path = GFCoreDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E663B41A228365405A42AF387DAF586A /* GFCoreDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GFCoreDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB1E89671955956815F266BB93C99184 /* Pods-GFCoreDataSource_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GFCoreDataSource_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EEB5571829C74F6E4A050C4C572FB533 /* Pods-GFCoreDataSource_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GFCoreDataSource_Example-resources.sh"; sourceTree = "<group>"; };
 		F3E040429891420F80B1FC6551A18B18 /* Pods-GFCoreDataSource_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GFCoreDataSource_Tests-frameworks.sh"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEA604CB1E08131100058D36 /* CoreData.framework in Frameworks */,
 				EE32A22FCD89A09298DBDCCD7D1F1398 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,7 +182,6 @@
 				B01D136A189F1FBB97FC08B66003877B /* ObjectProcessor.h */,
 				7C4700C2825E1A37B0033DB56F6E8AF1 /* ObjectProcessor.m */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -205,6 +207,7 @@
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AEA604CA1E08131100058D36 /* CoreData.framework */,
 				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
 			);
 			name = Frameworks;
@@ -229,7 +232,6 @@
 			children = (
 				7491BF4F0756D560056A81617D1C667D /* Classes */,
 			);
-			name = GFCoreDataSource;
 			path = GFCoreDataSource;
 			sourceTree = "<group>";
 		};
