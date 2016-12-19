@@ -1,5 +1,5 @@
 PODS:
-  - GFCoreDataSource (0.1.0)
+  - GFCoreDataSource (0.1)
 
 DEPENDENCIES:
   - GFCoreDataSource (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  GFCoreDataSource: 6f9b133abbc97ac88bad94a5dd51acae95416ac5
+  GFCoreDataSource: f6ed096bfbb9166aa2caf2db076ec0173e6f6875
 
 PODFILE CHECKSUM: 98ecc2fcc68005905f8dcf847528fbfb11478e82
 

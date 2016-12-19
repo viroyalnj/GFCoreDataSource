@@ -23,6 +23,7 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71413FEE704D280D876F4F77 /* Pods_GFCoreDataSource_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8E886B3ABE855454569250 /* Pods_GFCoreDataSource_Example.framework */; };
 		AEA604B81E07FF8F00058D36 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA604B71E07FF8F00058D36 /* Launch Screen.storyboard */; };
+		AEA604C21E0806B700058D36 /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = AEA604C11E0806B700058D36 /* .travis.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		892B15E41E21CD3C5469C027 /* Pods-GFCoreDataSource_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFCoreDataSource_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GFCoreDataSource_Example/Pods-GFCoreDataSource_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		8DD60754DD7A4AC823E63C03 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		AEA604B71E07FF8F00058D36 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		AEA604C11E0806B700058D36 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		BC8E886B3ABE855454569250 /* Pods_GFCoreDataSource_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GFCoreDataSource_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF20B677D4822215136BA3B0 /* GFCoreDataSource.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GFCoreDataSource.podspec; path = ../GFCoreDataSource.podspec; sourceTree = "<group>"; };
 		ECB9DE2AF2B4AA64EFE9D331 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				CF20B677D4822215136BA3B0 /* GFCoreDataSource.podspec */,
 				8DD60754DD7A4AC823E63C03 /* README.md */,
 				ECB9DE2AF2B4AA64EFE9D331 /* LICENSE */,
+				AEA604C11E0806B700058D36 /* .travis.yml */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			files = (
 				AEA604B81E07FF8F00058D36 /* Launch Screen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				AEA604C21E0806B700058D36 /* .travis.yml in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
