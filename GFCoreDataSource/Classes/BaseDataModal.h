@@ -48,7 +48,6 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 + (instancetype)sharedClient;
 
-- (instancetype)init NS_DEPRECATED_IOS(1, 2);
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex;
 
 - (ObjectProcessor *)newProcessor;
