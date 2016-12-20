@@ -69,10 +69,18 @@
 
 - (NSPersistentStoreCoordinator *)persistentStoreCoordinate {
     if (!_persistentStoreCoordinate) {
-        NSURL *urlModel = [[NSBundle mainBundle] URLForResource:@"model"
+        NSURL *urlModel = [[NSBundle mainBundle] URLForResource:@"Model"
                                                   withExtension:@"momd"];
         NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL:urlModel];
         _persistentStoreCoordinate = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+        
+        NSURL *urlStore = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:@"data.sqlite"];
+        
+        [_persistentStoreCoordinate addPersistentStoreWithType:NSSQLiteStoreType
+                                                 configuration:nil
+                                                           URL:urlStore
+                                                       options:nil
+                                                         error:nil];
     }
     
     return _persistentStoreCoordinate;

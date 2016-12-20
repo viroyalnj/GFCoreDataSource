@@ -1,2 +1,6 @@
 /* Localized versions of Info.plist keys */
 
+"CFBundleShortVersionString" = "0.1";
+
+"CFBundleVersion" = "0.1";
+
