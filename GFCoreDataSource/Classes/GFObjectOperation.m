@@ -1,38 +1,28 @@
 //
-//  ObjectProcessor.m
+//  GFObjectOperation.m
 //  YuCloud
 //
 //  Created by 熊国锋 on 15/12/19.
 //  Copyright © 2015年 VIROYAL-ELEC. All rights reserved.
 //
 
-#import "ObjectProcessor.h"
+#import "GFObjectOperation.h"
 
-@interface ObjectProcessor ()
+@interface GFObjectOperation ()
 
 @property (nonatomic, strong) NSManagedObjectContext            *managedObjectContext;
 
 
 @end
 
-@implementation ObjectProcessor
+@implementation GFObjectOperation
 
-+ (NSOperationQueue *)sharedOperationQueue
-{
-    static NSOperationQueue *_sharedClient = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        _sharedClient = [[NSOperationQueue alloc] init];
-        _sharedClient.name = @"ObjectProcessor";
-    });
-    
-    return _sharedClient;
-}
-
-- (void)main
-{
+- (void)main {
     if (self.delegate && [self.delegate respondsToSelector:@selector(editDidSave:)]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self.delegate selector:@selector(editDidSave:) name:NSManagedObjectContextDidSaveNotification object:self.managedObjectContext];
+        [[NSNotificationCenter defaultCenter] addObserver:self.delegate
+                                                 selector:@selector(editDidSave:)
+                                                     name:NSManagedObjectContextDidSaveNotification
+                                                   object:self.managedObjectContext];
     }
     
     NSError *error;
@@ -44,7 +34,7 @@
         NSString *entity = [dic valueForKey:@"entity"];
         NSPredicate *predicate = [dic valueForKey:@"predicate"];
         
-        NSLog(@"ObjectProcessor start sync for: %@", entity);
+        NSLog(@"GFObjectOperation start sync for: %@", entity);
         
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity];
         if (predicate) {
@@ -64,7 +54,7 @@
         NSArray *entities = [object valueForKey:@"entities"];
         NSPredicate *predicate = [object valueForKey:@"predicate"];
         
-        NSLog(@"ObjectProcessor clear objects for entities: %@", entities);
+        NSLog(@"GFObjectOperation clear objects for entities: %@", entities);
         
         for (NSString *entity in entities) {
             NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity];
@@ -79,65 +69,46 @@
         }
     }
     
-    while ([self.clearUnreadInfo count]) {
-        NSDictionary *object = [self.clearUnreadInfo firstObject];
-        [self.clearUnreadInfo removeObject:object];
-        
-        NSArray *entities = [object valueForKey:@"entities"];
-        NSPredicate *predicate = [object valueForKey:@"predicate"];
-        
-        NSLog(@"ObjectProcessor clear unread for entities: %@", entities);
-        
-        for (NSString *entity in entities) {
-            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity];
-            if (predicate) {
-                [request setPredicate:predicate];
-            }
-            
-            NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
-            for (NSManagedObject *item in objects) {
-                [item setValue:@NO forKey:@"unread"];
-            }
-        }
-    }
-    
     while ([self.insertDataInfo count]) {
-        id object = [self.insertDataInfo firstObject];
-        [self.insertDataInfo removeObject:object];
+        id info = [self.insertDataInfo firstObject];
+        [self.insertDataInfo removeObject:info];
+        
+        [self onAddObject:info];
     }
     
     while ([self.editDataInfo count]) {
-        NSDictionary *info  = [self.editDataInfo objectAtIndex:0];
+        NSDictionary *info  = [self.editDataInfo firstObject];
         [self.editDataInfo removeObject:info];
         
-        NSManagedObjectID *objectID = [info valueForKey:@"objectID"];
-        NSManagedObject *item = [self.managedObjectContext objectWithID:objectID];
+        NSPredicate *predicate = info[@"predicate"];
+        NSManagedObjectID *objectID = info[@"objectID"];
+        NSString *entityName = info[@"entity"];
+        NSString *action = info[@"action"];
         
-        if (item && ![item isDeleted]) {
-            NSArray *allKeys = [info allKeys];
-            for (NSString *key in allKeys) {
-                if ([key isEqualToString:@"objectID"]) {
-                    continue;
-                }
-                
-                if ([key isEqualToString:@"remove"]) {
-                    [self.managedObjectContext deleteObject:item];
-                }
-                else if ([key isEqualToString:@"edit"]) {
-                    NSDictionary *edit = [info valueForKey:key];
-                    NSArray *keys = [edit allKeys];
-                    for (NSString *aa in keys) {
-                        id bb = [edit valueForKey:aa];
-                        [item setValue:bb forKey:aa];
-                    }
-                }
-                else {
-                    NSLog(@"ObjectProcessor error type for: %@", key);
-                }
-            }
+        NSArray *objects;
+        if (objectID) {
+            NSManagedObject *item = [self.managedObjectContext objectWithID:objectID];
+            objects = @[item];
         }
         else {
-            NSLog(@"item was deleted: %@", item);
+            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+            request.predicate = predicate;
+            objects = [self.managedObjectContext executeFetchRequest:request error:nil];
+        }
+        
+        for (NSManagedObject *item in objects) {
+            if (item && ![item isDeleted]) {
+                if ([action isEqualToString:@"Delete"]) {
+                    [self onDeleteObject:item];
+                }
+                else if ([action isEqualToString:@"Edit"]) {
+                    NSDictionary *edit = info[@"Edit"];
+                    [self onEditObject:item edit:edit];
+                }
+            }
+            else {
+                NSLog(@"item was deleted: %@", item);
+            }
         }
     }
     
@@ -148,7 +119,7 @@
         NSString *entity = [dic valueForKey:@"entity"];
         NSPredicate *predicate = [dic valueForKey:@"predicate"];
         
-        NSLog(@"ObjectProcessor end sync for: %@", entity);
+        NSLog(@"GFObjectOperation end sync for: %@", entity);
         
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity];
         if (predicate) {
@@ -159,7 +130,7 @@
         for (NSManagedObject *item in objects) {
             NSNumber *refCount = [item valueForKey:@"refCount"];
             if ([refCount integerValue] == 0) {
-                NSLog(@"ObjectProcessor end sync delete item: %@", item);
+                NSLog(@"GFObjectOperation end sync delete item: %@", item);
                 [self.managedObjectContext deleteObject:item];
             }
         }
@@ -169,15 +140,14 @@
         NSError *error;
         [self.managedObjectContext save:&error];
         if (error) {
-            NSLog(@"ObjectProcessor managedObjectContext save error: %@", [error localizedDescription]);
+            NSLog(@"GFObjectOperation managedObjectContext save error: %@", [error localizedDescription]);
         }
     }
     
     [self.delegate processDidFinished:self];
 }
 
-- (NSManagedObjectContext *)managedObjectContext
-{
+- (NSManagedObjectContext *)managedObjectContext {
     if (_managedObjectContext == nil) {
         _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
         _managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
@@ -186,8 +156,7 @@
     return _managedObjectContext;
 }
 
-- (NSMutableArray *)editDataInfo
-{
+- (NSMutableArray *)editDataInfo {
     if (_editDataInfo == nil) {
         _editDataInfo = [NSMutableArray arrayWithCapacity:10];
     }
@@ -195,17 +164,7 @@
     return _editDataInfo;
 }
 
-- (NSMutableArray *)editMessageDataInfo
-{
-    if (_editMessageDataInfo == nil) {
-        _editMessageDataInfo = [NSMutableArray arrayWithCapacity:10];
-    }
-    
-    return _editMessageDataInfo;
-}
-
-- (NSMutableArray *)insertDataInfo
-{
+- (NSMutableArray *)insertDataInfo {
     if (_insertDataInfo == nil) {
         _insertDataInfo = [NSMutableArray arrayWithCapacity:10];
     }
@@ -213,8 +172,7 @@
     return _insertDataInfo;
 }
 
-- (NSMutableArray *)clearDataInfo
-{
+- (NSMutableArray *)clearDataInfo {
     if (_clearDataInfo == nil) {
         _clearDataInfo = [NSMutableArray arrayWithCapacity:10];
     }
@@ -222,17 +180,7 @@
     return _clearDataInfo;
 }
 
-- (NSMutableArray *)clearUnreadInfo
-{
-    if (_clearUnreadInfo == nil) {
-        _clearUnreadInfo = [NSMutableArray arrayWithCapacity:10];
-    }
-    
-    return _clearUnreadInfo;
-}
-
-- (NSMutableArray *)startSyncDataInfo
-{
+- (NSMutableArray *)startSyncDataInfo {
     if (_startSyncDataInfo == nil) {
         _startSyncDataInfo = [NSMutableArray arrayWithCapacity:10];
     }
@@ -240,8 +188,7 @@
     return _startSyncDataInfo;
 }
 
-- (NSMutableArray *)finishSyncDataInfo
-{
+- (NSMutableArray *)finishSyncDataInfo {
     if (_finishSyncDataInfo == nil) {
         _finishSyncDataInfo = [NSMutableArray arrayWithCapacity:10];
     }
@@ -255,6 +202,21 @@
     }
     
     return _identifier;
+}
+
+- (void)onAddObject:(id)object {
+    NSAssert(NO, @"implement this in your sub class");
+}
+
+- (void)onEditObject:(NSManagedObject *)object edit:(NSDictionary *)edit {
+    for (NSString *aa in [edit allKeys]) {
+        id bb = [edit valueForKey:aa];
+        [object setValue:bb forKey:aa];
+    }
+}
+
+- (void)onDeleteObject:(NSManagedObject *)object {
+    [self.managedObjectContext deleteObject:object];
 }
 
 - (void)dealloc {

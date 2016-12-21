@@ -1,5 +1,5 @@
 //
-//  ObjectProcessor.h
+//  GFObjectOperation.h
 //  YuCloud
 //
 //  Created by 熊国锋 on 15/12/19.
@@ -16,23 +16,24 @@
 
 @end
 
-@interface ObjectProcessor : NSOperation
+@interface GFObjectOperation : NSOperation
 
-+ (NSOperationQueue *)sharedOperationQueue;
-
-@property (nonatomic, weak)   id <ObjectProcessDelegate>        delegate;
-@property (nonatomic, strong) NSPersistentStoreCoordinator      *persistentStoreCoordinator;
+@property (nonatomic, weak)     id <ObjectProcessDelegate>      delegate;
+@property (nonatomic, readonly) NSManagedObjectContext          *managedObjectContext;
+@property (nonatomic, strong)   NSPersistentStoreCoordinator    *persistentStoreCoordinator;
 
 @property (nonatomic, strong) NSMutableArray                    *startSyncDataInfo;
 @property (nonatomic, strong) NSMutableArray                    *finishSyncDataInfo;
+
 @property (nonatomic, strong) NSMutableArray                    *insertDataInfo;
 @property (nonatomic, strong) NSMutableArray                    *editDataInfo;
-@property (nonatomic, strong) NSMutableArray                    *editMessageDataInfo;
+
 @property (nonatomic, strong) NSMutableArray                    *clearDataInfo;
-@property (nonatomic, strong) NSMutableArray                    *clearUnreadInfo;
-
-
 
 @property (nonatomic, copy)   NSString                          *identifier;
+
+- (void)onAddObject:(id)info;
+- (void)onEditObject:(NSManagedObject *)object edit:(NSDictionary *)edit;
+- (void)onDeleteObject:(NSManagedObject *)object;
 
 @end

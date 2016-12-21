@@ -1,5 +1,5 @@
 //
-//  BaseDataModal.h
+//  GFDataSource.h
 //  YuCloud
 //
 //  Created by guofengld on 16/3/24.
@@ -7,28 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ObjectProcessor.h"
+#import "GFObjectOperation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
-@class BaseDataModal;
+@class GFDataSource;
 
-@protocol BaseDataModalDelegate <NSObject>
+@protocol GFDataSourceDelegate <NSObject>
 
 @optional
 
-- (void)dataModal:(BaseDataModal *)modal willChangeContentForKey:(nullable NSString *)key;
-- (void)dataModal:(BaseDataModal *)modal didChangeContentForKey:(nullable NSString *)key;
+- (void)dataModal:(GFDataSource *)modal willChangeContentForKey:(nullable NSString *)key;
+- (void)dataModal:(GFDataSource *)modal didChangeContentForKey:(nullable NSString *)key;
 
-- (void)dataModal:(BaseDataModal *)modal
+- (void)dataModal:(GFDataSource *)modal
  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
           atIndex:(NSUInteger)sectionIndex
     forChangeType:(NSFetchedResultsChangeType)type
            forKey:(nullable NSString *)key;
 
-- (void)dataModal:(BaseDataModal *)modal
+- (void)dataModal:(GFDataSource *)modal
   didChangeObject:(id)anObject
       atIndexPath:(NSIndexPath *)indexPath
     forChangeType:(NSFetchedResultsChangeType)type
@@ -41,25 +41,23 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 @end
 
-@interface BaseDataModal : NSObject < ObjectProcessDelegate >
+@interface GFDataSource : NSObject < ObjectProcessDelegate >
 
-@property (nonatomic, weak)     id <BaseDataModalDelegate>      delegate;
+@property (nonatomic, weak)     id <GFDataSourceDelegate>      delegate;
 @property (nonatomic, readonly) NSManagedObjectContext          *managedObjectContext;
 
 + (instancetype)sharedClient;
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex;
 
-- (ObjectProcessor *)newProcessor;
+- (GFObjectOperation *)newProcessor;
 
-- (void)registerDelegate:(id<BaseDataModalDelegate>)delegate
+- (void)registerDelegate:(id<GFDataSourceDelegate>)delegate
                   entity:(nonnull NSString *)entityName
-               predicate:(nonnull NSPredicate *)predicate
+               predicate:(nullable NSPredicate *)predicate
          sortDescriptors:(nonnull NSArray<NSSortDescriptor *>*)sortDescriptors
       sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
                      key:(NSString *)key;
-
-- (void)clearDelegateForKey:(NSString *)key;
 
 - (NSInteger)numberOfSectionsForKey:(NSString *)key;
 - (NSInteger)numberOfItemsForKey:(NSString *)key inSection:(NSInteger)section;
@@ -68,12 +66,12 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 - (NSArray *)allObjectsForKey:(NSString *)key;
 
 - (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController forKey:(NSString *)key;
-- (void)setDelegate:(id <BaseDataModalDelegate>)delegate forKey:(NSString *)key;
+- (void)setDelegate:(id <GFDataSourceDelegate>)delegate forKey:(NSString *)key;
 
 - (NSFetchedResultsController *)fetchedResultsControllerForKey:(NSString *)key;
-- (id <BaseDataModalDelegate>)delegateForKey:(NSString *)key;
+- (id <GFDataSourceDelegate>)delegateForKey:(NSString *)key;
 - (nullable NSString *)keyForController:(NSFetchedResultsController *)controller;
-- (id <BaseDataModalDelegate>)delegateForController:(NSFetchedResultsController *)controller;
+- (id <GFDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller;
 - (NSEnumerator <NSFetchedResultsController *> *)fetchedResultsControllerEnumerator;
 
 - (void)startSync;

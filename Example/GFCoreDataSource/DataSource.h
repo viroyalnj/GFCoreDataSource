@@ -6,9 +6,15 @@
 //  Copyright © 2016年 guofengld. All rights reserved.
 //
 
-#import "BaseDataModal.h"
-#import "BoxItemEntity+CoreDataClass.h"
+#import "GFDataSource.h"
+#import "BoxItemData.h"
 
-@interface DataSource : BaseDataModal
+NS_ASSUME_NONNULL_BEGIN
+
+@interface DataSource : GFDataSource
+
+- (void)removeItemsWithBox:(NSString *)box;
 
 @end
+
+NS_ASSUME_NONNULL_END

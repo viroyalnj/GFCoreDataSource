@@ -7,7 +7,33 @@
 //
 
 #import "DataSource.h"
+#import "AppDelegate.h"
+#import "ObjectOperation.h"
 
 @implementation DataSource
+
++ (instancetype)sharedClient {
+    static dispatch_once_t onceToken;
+    __block DataSource *client;
+    dispatch_once(&onceToken, ^{
+        client = [[DataSource alloc] initWithManagedObjectContext:[AppDelegate appDelegate].managedObjectContext];
+    });
+    
+    return client;
+}
+
+- (ObjectOperation *)newProcessor {
+    ObjectOperation *processor = [[ObjectOperation alloc] init];
+    
+    return processor;
+}
+
+- (void)removeItemsWithBox:(NSString *)box {
+    NSDictionary *info = @{@"entity" : [ItemEntity entityName],
+                           @"action" : @"Delete",
+                           @"predicate" : [NSPredicate predicateWithFormat:@"box == %@", box]};
+    
+    [self editObject:info];
+}
 
 @end

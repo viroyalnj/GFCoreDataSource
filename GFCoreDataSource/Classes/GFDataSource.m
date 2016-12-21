@@ -1,14 +1,14 @@
 //
-//  BaseDataModal.m
+//  GFDataSource.m
 //  YuCloud
 //
 //  Created by guofengld on 16/3/24.
 //  Copyright © 2016年 guofengld. All rights reserved.
 //
 
-#import "BaseDataModal.h"
+#import "GFDataSource.h"
 
-@interface BaseDataModal () < NSFetchedResultsControllerDelegate >
+@interface GFDataSource () < NSFetchedResultsControllerDelegate >
 
 @property (nonatomic, strong)   NSManagedObjectContext          *managedObjectContext;
 
@@ -17,9 +17,11 @@
 @property (nonatomic, strong)   NSMutableDictionary             *dicFetchedResultsController;
 @property (nonatomic, strong)   NSMapTable                      *dicDelegate;
 
+@property (nonatomic, strong)   NSOperationQueue                *operationQueue;
+
 @end
 
-@implementation BaseDataModal
+@implementation GFDataSource
 
 + (instancetype)sharedClient {
     NSAssert(NO, @"implement this method in your sub-class");
@@ -34,13 +36,9 @@
     return self;
 }
 
-- (ObjectProcessor *)newProcessor {
-    ObjectProcessor *processor = [[ObjectProcessor alloc] init];
-    
-    processor.delegate = self;
-    processor.persistentStoreCoordinator = self.managedObjectContext.persistentStoreCoordinator;
-    
-    return processor;
+- (GFObjectOperation *)newProcessor {
+    NSAssert(NO, @"implement this method in your sub class");
+    return nil;
 }
 
 - (NSMutableDictionary *)operations {
@@ -68,8 +66,8 @@
     return _dicDelegate;
 }
 
-- (void)registerDelegate:(id<BaseDataModalDelegate>)delegate
-                  entity:(nonnull NSString *)entityName
+- (void)registerDelegate:(id<GFDataSourceDelegate>)delegate
+                  entity:(NSString *)entityName
                predicate:(NSPredicate *)predicate
          sortDescriptors:(NSArray<NSSortDescriptor *> *)sortDescriptors
       sectionNameKeyPath:(NSString *)sectionNameKeyPath
@@ -89,13 +87,6 @@
     
     [self setDelegate:delegate forKey:key];
     [controller performFetch:nil];
-}
-
-- (void)clearDelegateForKey:(NSString *)key {
-    if (key) {
-        [self.dicDelegate removeObjectForKey:key];
-        [self.dicFetchedResultsController removeObjectForKey:key];
-    }
 }
 
 - (NSFetchedResultsController *)fetchedResultsControllerForKey:(NSString *)key
@@ -167,7 +158,7 @@
     [self.dicFetchedResultsController setObject:fetchedResultsController forKey:key];
 }
 
-- (void)setDelegate:(id <BaseDataModalDelegate>)delegate forKey:(NSString *)key {
+- (void)setDelegate:(id <GFDataSourceDelegate>)delegate forKey:(NSString *)key {
     [self.dicDelegate setObject:delegate forKey:key];
 }
 
@@ -175,7 +166,7 @@
     return [self.dicFetchedResultsController objectForKey:key];
 }
 
-- (id <BaseDataModalDelegate>)delegateForKey:(NSString *)key {
+- (id <GFDataSourceDelegate>)delegateForKey:(NSString *)key {
     return [self.dicDelegate objectForKey:key];
 }
 
@@ -189,7 +180,7 @@
     return nil;
 }
 
-- (id <BaseDataModalDelegate>)delegateForController:(NSFetchedResultsController *)controller {
+- (id <GFDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller {
     NSString *key = [self keyForController:controller];
     return [self.dicDelegate objectForKey:key];
 }
@@ -198,16 +189,31 @@
     return [self.dicFetchedResultsController objectEnumerator];
 }
 
-- (NSOperation *)addOperation:(ObjectProcessor *)processor wait:(BOOL)wait {
+- (NSOperationQueue *)operationQueue {
+    if (!_operationQueue) {
+        _operationQueue = [[NSOperationQueue alloc] init];
+        _operationQueue.name = [NSString stringWithFormat:@"%@ queue", NSStringFromClass([self class])];
+    }
+    
+    return _operationQueue;
+}
+
+- (NSOperation *)addOperation:(GFObjectOperation *)processor wait:(BOOL)wait {
+    processor.delegate = self;
+    processor.persistentStoreCoordinator = self.managedObjectContext.persistentStoreCoordinator;
+    
     return [self addOperation:processor
                          wait:wait
                   finishBlock:nil];
 }
 
-- (NSOperation *)addOperation:(ObjectProcessor *)processor
+- (NSOperation *)addOperation:(GFObjectOperation *)processor
                          wait:(BOOL)wait
                   finishBlock:(CommonBlock)block {
-    [[ObjectProcessor sharedOperationQueue] addOperations:@[processor] waitUntilFinished:wait];
+    processor.delegate = self;
+    processor.persistentStoreCoordinator = self.managedObjectContext.persistentStoreCoordinator;
+    
+    [self.operationQueue addOperations:@[processor] waitUntilFinished:wait];
     if (block) {
         [self.operations setObject:block forKey:processor.identifier];
     }
@@ -215,7 +221,7 @@
     return processor;
 }
 
-- (void)processDidFinished:(ObjectProcessor *)processor {
+- (void)processDidFinished:(GFObjectOperation *)processor {
     if ([NSThread isMainThread]) {
         CommonBlock block = [self.operations objectForKey:processor.identifier];
         if (block) {
@@ -239,7 +245,7 @@
 }
 
 - (void)startSyncEntity:(NSString *)entity predicate:(NSPredicate *)predicate {
-    ObjectProcessor *process = [self newProcessor];
+    GFObjectOperation *process = [self newProcessor];
     if (predicate) {
         [process.startSyncDataInfo addObject:@{@"entity" : entity, @"predicate" : predicate}];
     }
@@ -251,7 +257,7 @@
 }
 
 - (void)finishSyncEntity:(NSString *)entity predicate:(NSPredicate *)predicate {
-    ObjectProcessor *process = [self newProcessor];
+    GFObjectOperation *process = [self newProcessor];
     if (predicate) {
         [process.finishSyncDataInfo addObject:@{@"entity" : entity, @"predicate" : predicate}];
     }
@@ -263,21 +269,21 @@
 }
 
 - (NSOperation *)addObject:(id)data {
-    ObjectProcessor *process = [self newProcessor];
+    GFObjectOperation *process = [self newProcessor];
     [process.insertDataInfo addObject:data];
     
     return [self addOperation:process wait:YES];
 }
 
 - (NSOperation *)addObject:(id)data block:(CommonBlock)block {
-    ObjectProcessor *process = [self newProcessor];
+    GFObjectOperation *process = [self newProcessor];
     [process.insertDataInfo addObject:data];
     
     return [self addOperation:process wait:YES finishBlock:block];
 }
 
 - (void)addObjects:(NSArray *)array {
-    ObjectProcessor *process = [self newProcessor];
+    GFObjectOperation *process = [self newProcessor];
     [process.insertDataInfo addObjectsFromArray:array];
     
     [self addOperation:process wait:YES];
@@ -288,29 +294,15 @@
 }
 
 - (void)editObject:(id)data block:(CommonBlock)block {
-    ObjectProcessor *process = [self newProcessor];
+    GFObjectOperation *process = [self newProcessor];
     [process.editDataInfo addObject:data];
     
     [self addOperation:process wait:YES finishBlock:block];
 }
 
-- (void)editMessageObject:(id)data {
-    ObjectProcessor *process = [self newProcessor];
-    [process.editMessageDataInfo addObject:data];
-    
-    [self addOperation:process wait:YES];
-}
-
 - (void)clearData:(id)data {
-    ObjectProcessor *process = [self newProcessor];
+    GFObjectOperation *process = [self newProcessor];
     [process.clearDataInfo addObject:data];
-    
-    [self addOperation:process wait:YES];
-}
-
-- (void)clearUnread:(id)data {
-    ObjectProcessor *process = [self newProcessor];
-    [process.clearUnreadInfo addObject:data];
     
     [self addOperation:process wait:YES];
 }
@@ -320,10 +312,10 @@
 }
 
 - (void)removeObjectWithObjectID:(NSManagedObjectID *)objectID block:(CommonBlock)block {
-    NSDictionary *data = @{@"objectID" : objectID,
-                           @"remove" : [NSNumber numberWithBool:YES]};
+    NSDictionary *info = @{@"objectID" : objectID,
+                           @"action" : @"Delete"};
     
-    [self editObject:data block:block];
+    [self editObject:info block:block];
 }
 
 #pragma mark - ObjectProcessDelegate
@@ -344,7 +336,7 @@
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     
     NSString *key = [self keyForController:controller];
-    id <BaseDataModalDelegate> delegate = [self delegateForController:controller];
+    id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
     
     if ([delegate respondsToSelector:@selector(dataModal:willChangeContentForKey:)]) {
         [delegate dataModal:self willChangeContentForKey:key];
@@ -354,7 +346,7 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     
     NSString *key = [self keyForController:controller];
-    id <BaseDataModalDelegate> delegate = [self delegateForController:controller];
+    id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
     
     if ([delegate respondsToSelector:@selector(dataModal:didChangeContentForKey:)]) {
         [delegate dataModal:self didChangeContentForKey:key];
@@ -367,7 +359,7 @@
      forChangeType:(NSFetchedResultsChangeType)type {
     
     NSString *key = [self keyForController:controller];
-    id <BaseDataModalDelegate> delegate = [self delegateForController:controller];
+    id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
     
     if ([delegate respondsToSelector:@selector(dataModal:didChangeSection:atIndex:forChangeType:forKey:)]) {
         [delegate dataModal:self
@@ -385,7 +377,7 @@
       newIndexPath:(NSIndexPath *)newIndexPath {
     
     NSString *key = [self keyForController:controller];
-    id <BaseDataModalDelegate> delegate = [self delegateForController:controller];
+    id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
     
     if ([delegate respondsToSelector:@selector(dataModal:didChangeObject:atIndexPath:forChangeType:newIndexPath:forKey:)]) {
         [delegate dataModal:self didChangeObject:anObject

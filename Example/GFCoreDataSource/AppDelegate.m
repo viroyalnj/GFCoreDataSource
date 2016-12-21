@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import <CoreData/CoreData.h>
+#import "DataSource.h"
 
 @interface AppDelegate ()
 
@@ -19,13 +20,15 @@
 
 @implementation AppDelegate
 
++ (AppDelegate *)appDelegate {
+    return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    [self.managedObjectContext save:nil];
     
     self.window = [[UIWindow alloc] init];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[ViewController alloc] init];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -76,11 +79,14 @@
         
         NSURL *urlStore = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:@"data.sqlite"];
         
-        [_persistentStoreCoordinate addPersistentStoreWithType:NSSQLiteStoreType
-                                                 configuration:nil
-                                                           URL:urlStore
-                                                       options:nil
-                                                         error:nil];
+        NSError *error;
+        if (![_persistentStoreCoordinate addPersistentStoreWithType:NSSQLiteStoreType
+                                                      configuration:nil
+                                                                URL:urlStore
+                                                            options:nil
+                                                              error:&error]) {
+            abort();
+        }
     }
     
     return _persistentStoreCoordinate;
