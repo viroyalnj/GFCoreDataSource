@@ -84,9 +84,7 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 - (NSOperation *)addObject:(id)data block:(nullable CommonBlock)block;
 - (void)addObjects:(NSArray *)array;
 - (void)editObject:(id)data;
-- (void)editMessageObject:(id)data;
 - (void)clearData:(id)data;
-- (void)clearUnread:(id)data;
 
 - (void)removeObjectWithObjectID:(NSManagedObjectID *)objectID;
 - (void)removeObjectWithObjectID:(NSManagedObjectID *)objectID block:(nullable CommonBlock)block;
