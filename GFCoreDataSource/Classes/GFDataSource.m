@@ -11,6 +11,7 @@
 @interface GFDataSource () < NSFetchedResultsControllerDelegate >
 
 @property (nonatomic, strong)   NSManagedObjectContext          *managedObjectContext;
+@property (nonatomic, copy)     Class                           objectClass;
 
 @property (nonatomic, strong)   NSMutableDictionary             *operations;
 
@@ -28,17 +29,18 @@
     return nil;
 }
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex {
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex class:(nonnull Class)class {
     if (self = [super init]) {
         self.managedObjectContext = managedContex;
+        self.objectClass = class;
     }
     
     return self;
 }
 
-- (GFObjectOperation *)newProcessor {
-    NSAssert(NO, @"implement this method in your sub class");
-    return nil;
+- (GFObjectOperation *)newOperation {
+    NSAssert(self.objectClass, @"must not be null");
+    return [[self.objectClass alloc] init];
 }
 
 - (NSMutableDictionary *)operations {
@@ -236,16 +238,8 @@
     }
 }
 
-- (void)startSync {
-    NSAssert(NO, @"Need to implement %s in sub class", __PRETTY_FUNCTION__);
-}
-
-- (void)finishSync {
-    NSAssert(NO, @"Need to implement %s in sub class", __PRETTY_FUNCTION__);
-}
-
 - (void)startSyncEntity:(NSString *)entity predicate:(NSPredicate *)predicate {
-    GFObjectOperation *process = [self newProcessor];
+    GFObjectOperation *process = [self newOperation];
     if (predicate) {
         [process.startSyncDataInfo addObject:@{@"entity" : entity, @"predicate" : predicate}];
     }
@@ -257,7 +251,7 @@
 }
 
 - (void)finishSyncEntity:(NSString *)entity predicate:(NSPredicate *)predicate {
-    GFObjectOperation *process = [self newProcessor];
+    GFObjectOperation *process = [self newOperation];
     if (predicate) {
         [process.finishSyncDataInfo addObject:@{@"entity" : entity, @"predicate" : predicate}];
     }
@@ -269,21 +263,21 @@
 }
 
 - (NSOperation *)addObject:(id)data {
-    GFObjectOperation *process = [self newProcessor];
+    GFObjectOperation *process = [self newOperation];
     [process.insertDataInfo addObject:data];
     
     return [self addOperation:process wait:YES];
 }
 
 - (NSOperation *)addObject:(id)data block:(CommonBlock)block {
-    GFObjectOperation *process = [self newProcessor];
+    GFObjectOperation *process = [self newOperation];
     [process.insertDataInfo addObject:data];
     
     return [self addOperation:process wait:YES finishBlock:block];
 }
 
 - (void)addObjects:(NSArray *)array {
-    GFObjectOperation *process = [self newProcessor];
+    GFObjectOperation *process = [self newOperation];
     [process.insertDataInfo addObjectsFromArray:array];
     
     [self addOperation:process wait:YES];
@@ -294,14 +288,14 @@
 }
 
 - (void)editObject:(id)data block:(CommonBlock)block {
-    GFObjectOperation *process = [self newProcessor];
+    GFObjectOperation *process = [self newOperation];
     [process.editDataInfo addObject:data];
     
     [self addOperation:process wait:YES finishBlock:block];
 }
 
 - (void)clearData:(id)data {
-    GFObjectOperation *process = [self newProcessor];
+    GFObjectOperation *process = [self newOperation];
     [process.clearDataInfo addObject:data];
     
     [self addOperation:process wait:YES];

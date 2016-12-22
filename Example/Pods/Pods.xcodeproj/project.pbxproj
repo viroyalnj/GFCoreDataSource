@@ -7,19 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02CEC17C0F758D669CDC4F7237F20239 /* GFCoreDataSource-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C16FEF2E17B922F245FDD46917D591 /* GFCoreDataSource-dummy.m */; };
 		04792E497A01BD1C3DC61BBD870CE70B /* Pods-GFCoreDataSource_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 019FA7C81BF25F1A8A2C094F611A4CBA /* Pods-GFCoreDataSource_Tests-dummy.m */; };
 		04A7D6AADAB213CE7D26F8EAD2F87536 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = AD04C760F0EB4FE7B23D85D56145A97F /* MASUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E0D93E00EEE665D6FF66F7B822B7FF /* GFObjectOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = B0B888C6A2B27BDA0B9E023C2EF57AEE /* GFObjectOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		068EF598E554EC57038ACFB89CC2C47A /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = FF217FE4E512E3883BAD867868CB42D9 /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		08ECA370E0B8234C6D927FF0A1ADDD0D /* Pods-GFCoreDataSource_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B42C13A76327D4F3FE6E1E44CC35478 /* Pods-GFCoreDataSource_Example-dummy.m */; };
 		091D17D5D8F832D28546A72B788CF0AE /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0183E721D7FD6AF70B4A911C1B1B95 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		09D005960BDDBF836A524DFDBA8019AE /* GFDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 16CFC13570ED0A3D6A4ED7C8466B0CC1 /* GFDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0F3DF5C3BEFCC9838B53C37735B414BE /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A214B89738295B4A4B00EEB1960E8865 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		0FDB2B4F75591851F0F119EAE70B3F63 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F69E835336330FF06E7268D32D667C9 /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2854C9B1086758BD2B6681206B6759B4 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C6D5C71A7A4B3156186EC98A377E8543 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3AD72E76235C39ADF76C243D0D4C427E /* GFCoreDataSource-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F622AD86010C32FA274B8DDB255DD48A /* GFCoreDataSource-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		457ACF9150DCF9AF445B129CC9678FB6 /* Masonry-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 13FC8E35EDBC629D62166DD797E6DE52 /* Masonry-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		48C8B22CF760F831A1AC249CEAA1E20A /* GFObjectOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4700C2825E1A37B0033DB56F6E8AF1 /* GFObjectOperation.m */; };
-		496082B14990C4AC5E2CC8CCB19A348E /* GFDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C52990B4806DA85FB02F2FF0BDC9FB00 /* GFDataSource.m */; };
 		4D4F2050654580FE1F1D5F4F82CEDDB8 /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 77F2CF8861113B6F7AAE7EA65C6A7C1B /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		53BDF81D0A52EA526D597A5C5B139D7F /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 537638D0C329C86D4ED401237F5D895F /* MASCompositeConstraint.m */; };
 		59F81DE0305CC2AC448D2A3C6B3280A2 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 986CB32629319F7F2256662716334944 /* MASConstraint.m */; };
@@ -30,16 +28,18 @@
 		6E909050B201CA8966AD83A3BE5AA01C /* Pods-GFCoreDataSource_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A657B1AE3C4DA2A415C029B308620C75 /* Pods-GFCoreDataSource_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73BBDACC22CCA36A6DAAA167AD780BAF /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3818136FED67BD32E3A7FAEDE4F68F /* MASConstraintMaker.m */; };
 		756DF24546C7D91459DCADC8F1C98660 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4875E63FFAFF84A3CDFE99F28B551E /* MASViewConstraint.m */; };
-		79125B2B951E46993BAB5F022594345F /* GFObjectOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = B01D136A189F1FBB97FC08B66003877B /* GFObjectOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7C17BEA6034027310D1D205DB2008CA5 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = C484EF8499F67EC81CA7E27930A63CDC /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		832F792E95D9D4D247C590BA5EF6B555 /* GFDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C7821ACFC5A4475A62C4B30F4B3553 /* GFDataSource.m */; };
 		88DE7BAB1F4999A5F4B617F44E5FD1D3 /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = A02D339E60E114FCC992372E93245BA1 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A6EEF68E7625AB66A3A8DED1594F88F /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3980E01C213ECEDEABAC38C1CFD3946D /* ViewController+MASAdditions.m */; };
 		8CD45B754192DE834B642975E85257AB /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 79BEFB59B86F59C579FF7594DCF78FEB /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9199796DB244D066FD8374898C874C45 /* GFCoreDataSource-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 30C16FEF2E17B922F245FDD46917D591 /* GFCoreDataSource-dummy.m */; };
 		A08A8AB356264E248D01F1BC0EF08166 /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FE937DE71A73D4B7779FF934EC2373E2 /* Masonry-dummy.m */; };
 		A7370CE9231F9A4927142D79021879EC /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0925CC604B01F156279E8952DDE3EDDB /* MASViewAttribute.m */; };
 		B0BDAF2C162185FF04D2656C8676D92C /* Pods-GFCoreDataSource_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 373E40933D63929723C0119C3EB219DC /* Pods-GFCoreDataSource_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B44383A3FA435C1E986942C817339302 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 61881F60AB333EA86CE7881063A4BA60 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C09E7A39B8FEA2CBB67CB05E0AFDE483 /* GFDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = B49466EBB7C62A4BDAE13890069D501A /* GFDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7812A2FB051FDEE61A02D1DC3384BB7 /* GFCoreDataSource-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F622AD86010C32FA274B8DDB255DD48A /* GFCoreDataSource-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BDB73BC2B3EEE5E947DA2B839B9891CB /* GFObjectOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D30B45B3F56783B872F0FF8FF6891C /* GFObjectOperation.m */; };
 		C0A16E00B4BC2D88A7833D5DAED62942 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A649F9297535214EF97548C9EA9FA33 /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C8DF22EAFFC2F81B0426E2165AC93E44 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = ECBBB506D4D551AB1A637EE3145A459E /* MASConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC8F9B4A1AC4E276EA8AA4C6F2BF3CD4 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 303B58A2959C8EEE96799AD558DDA1D3 /* Masonry.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -73,12 +73,13 @@
 		019FA7C81BF25F1A8A2C094F611A4CBA /* Pods-GFCoreDataSource_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GFCoreDataSource_Tests-dummy.m"; sourceTree = "<group>"; };
 		0925CC604B01F156279E8952DDE3EDDB /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
 		0B42C13A76327D4F3FE6E1E44CC35478 /* Pods-GFCoreDataSource_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GFCoreDataSource_Example-dummy.m"; sourceTree = "<group>"; };
-		11DFE6C74F18C960AF0E327B17F97848 /* Pods-GFCoreDataSource_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GFCoreDataSource_Tests.modulemap"; sourceTree = "<group>"; };
+		11DFE6C74F18C960AF0E327B17F97848 /* Pods-GFCoreDataSource_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GFCoreDataSource_Tests.modulemap"; sourceTree = "<group>"; };
 		13FC8E35EDBC629D62166DD797E6DE52 /* Masonry-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-umbrella.h"; sourceTree = "<group>"; };
+		16CFC13570ED0A3D6A4ED7C8466B0CC1 /* GFDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GFDataSource.h; sourceTree = "<group>"; };
 		1F0183E721D7FD6AF70B4A911C1B1B95 /* MASViewConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewConstraint.h; path = Masonry/MASViewConstraint.h; sourceTree = "<group>"; };
 		24602665701D96BBB06BFC31D70345ED /* Pods-GFCoreDataSource_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GFCoreDataSource_Example.release.xcconfig"; sourceTree = "<group>"; };
 		2F69E835336330FF06E7268D32D667C9 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSLayoutConstraint+MASDebugAdditions.h"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
-		3027ECF3675B7D92CFE998E7807ED8BD /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Masonry.modulemap; sourceTree = "<group>"; };
+		3027ECF3675B7D92CFE998E7807ED8BD /* Masonry.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Masonry.modulemap; sourceTree = "<group>"; };
 		303B58A2959C8EEE96799AD558DDA1D3 /* Masonry.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Masonry.h; path = Masonry/Masonry.h; sourceTree = "<group>"; };
 		30C16FEF2E17B922F245FDD46917D591 /* GFCoreDataSource-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GFCoreDataSource-dummy.m"; sourceTree = "<group>"; };
 		373E40933D63929723C0119C3EB219DC /* Pods-GFCoreDataSource_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GFCoreDataSource_Example-umbrella.h"; sourceTree = "<group>"; };
@@ -93,16 +94,15 @@
 		61C635FA63B207AC12EA2BD25D894A65 /* Masonry.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.xcconfig; sourceTree = "<group>"; };
 		66395E6043331E0D390D6EC4BAF57BD8 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E4875E63FFAFF84A3CDFE99F28B551E /* MASViewConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewConstraint.m; path = Masonry/MASViewConstraint.m; sourceTree = "<group>"; };
-		742A007C8234194332377682FA504BE7 /* GFCoreDataSource.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GFCoreDataSource.modulemap; sourceTree = "<group>"; };
+		742A007C8234194332377682FA504BE7 /* GFCoreDataSource.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GFCoreDataSource.modulemap; sourceTree = "<group>"; };
 		77F2CF8861113B6F7AAE7EA65C6A7C1B /* MASConstraint+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MASConstraint+Private.h"; path = "Masonry/MASConstraint+Private.h"; sourceTree = "<group>"; };
 		79BEFB59B86F59C579FF7594DCF78FEB /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
-		7C4700C2825E1A37B0033DB56F6E8AF1 /* GFObjectOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GFObjectOperation.m; sourceTree = "<group>"; };
 		7EC0A25DD6F58D072A4ACFC92D9237BF /* View+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "View+MASAdditions.m"; path = "Masonry/View+MASAdditions.m"; sourceTree = "<group>"; };
 		7EC994CDC2D681BA26389F78A7E4B325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		7F44A621BE24B87AEF75DD7193846188 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F9BEEC403406376DDED89A715B40A8C /* Pods-GFCoreDataSource_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GFCoreDataSource_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		81A962547E201705B7A3D26CDE98E8D2 /* Pods-GFCoreDataSource_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GFCoreDataSource_Tests-resources.sh"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		96B8DE2BB60202701B2A954A9E2CC719 /* Pods-GFCoreDataSource_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GFCoreDataSource_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		96DCAB46CA2931B8140F2639F17404AF /* MASViewAttribute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASViewAttribute.h; path = Masonry/MASViewAttribute.h; sourceTree = "<group>"; };
 		986CB32629319F7F2256662716334944 /* MASConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASConstraint.m; path = Masonry/MASConstraint.m; sourceTree = "<group>"; };
@@ -111,27 +111,27 @@
 		A214B89738295B4A4B00EEB1960E8865 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSLayoutConstraint+MASDebugAdditions.m"; path = "Masonry/NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
 		A657B1AE3C4DA2A415C029B308620C75 /* Pods-GFCoreDataSource_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GFCoreDataSource_Tests-umbrella.h"; sourceTree = "<group>"; };
 		AD04C760F0EB4FE7B23D85D56145A97F /* MASUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASUtilities.h; path = Masonry/MASUtilities.h; sourceTree = "<group>"; };
-		B01D136A189F1FBB97FC08B66003877B /* GFObjectOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GFObjectOperation.h; sourceTree = "<group>"; };
-		B16D118ACCC0D424CB004846C83BA8C1 /* Pods_GFCoreDataSource_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GFCoreDataSource_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B888C6A2B27BDA0B9E023C2EF57AEE /* GFObjectOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GFObjectOperation.h; sourceTree = "<group>"; };
+		B16D118ACCC0D424CB004846C83BA8C1 /* Pods_GFCoreDataSource_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GFCoreDataSource_Example.framework; path = "Pods-GFCoreDataSource_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1C550CDA10D592ABB6A0383A3509F05 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MASAdditions.m"; path = "Masonry/NSArray+MASAdditions.m"; sourceTree = "<group>"; };
 		B244BDFA7358D06A59D5C13FC67CA025 /* Pods-GFCoreDataSource_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GFCoreDataSource_Example-frameworks.sh"; sourceTree = "<group>"; };
-		B49466EBB7C62A4BDAE13890069D501A /* GFDataSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GFDataSource.h; sourceTree = "<group>"; };
+		B2D30B45B3F56783B872F0FF8FF6891C /* GFObjectOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GFObjectOperation.m; sourceTree = "<group>"; };
 		C3F46722C5B2E567F61B16F3E0A84CAB /* Pods-GFCoreDataSource_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GFCoreDataSource_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C484EF8499F67EC81CA7E27930A63CDC /* MASLayoutConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASLayoutConstraint.h; path = Masonry/MASLayoutConstraint.h; sourceTree = "<group>"; };
-		C52990B4806DA85FB02F2FF0BDC9FB00 /* GFDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GFDataSource.m; sourceTree = "<group>"; };
 		C6D5C71A7A4B3156186EC98A377E8543 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
-		C9E3C9617A2BE9B7A7B8F64D0D3FDDD3 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9E3C9617A2BE9B7A7B8F64D0D3FDDD3 /* Masonry.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Masonry.framework; path = Masonry.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA74675B50EE89B9C297B0B333243763 /* GFCoreDataSource-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GFCoreDataSource-prefix.pch"; sourceTree = "<group>"; };
 		CD9460636A228DA2C8F5EC4A2AB7EBB6 /* Masonry-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Masonry-prefix.pch"; sourceTree = "<group>"; };
-		D7464A77BACDC99E351E2A465AE65A28 /* Pods-GFCoreDataSource_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GFCoreDataSource_Example.modulemap"; sourceTree = "<group>"; };
+		D7464A77BACDC99E351E2A465AE65A28 /* Pods-GFCoreDataSource_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GFCoreDataSource_Example.modulemap"; sourceTree = "<group>"; };
 		D775F28EE549F5B1C173362845DCCBDC /* Pods-GFCoreDataSource_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-GFCoreDataSource_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		DC89B096D223AED2F924DABB4222B67E /* Pods_GFCoreDataSource_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GFCoreDataSource_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC89B096D223AED2F924DABB4222B67E /* Pods_GFCoreDataSource_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GFCoreDataSource_Tests.framework; path = "Pods-GFCoreDataSource_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07E32D804E61D5FCC3AA16884360509 /* Pods-GFCoreDataSource_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GFCoreDataSource_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		E5C7821ACFC5A4475A62C4B30F4B3553 /* GFDataSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = GFDataSource.m; sourceTree = "<group>"; };
 		EB1E89671955956815F266BB93C99184 /* Pods-GFCoreDataSource_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GFCoreDataSource_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		ECBBB506D4D551AB1A637EE3145A459E /* MASConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASConstraint.h; path = Masonry/MASConstraint.h; sourceTree = "<group>"; };
 		EEB5571829C74F6E4A050C4C572FB533 /* Pods-GFCoreDataSource_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GFCoreDataSource_Example-resources.sh"; sourceTree = "<group>"; };
 		F3E040429891420F80B1FC6551A18B18 /* Pods-GFCoreDataSource_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GFCoreDataSource_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		F4A417470B9B595CB67460B3DDBDF76C /* GFCoreDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GFCoreDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F4A417470B9B595CB67460B3DDBDF76C /* GFCoreDataSource.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GFCoreDataSource.framework; path = GFCoreDataSource.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F622AD86010C32FA274B8DDB255DD48A /* GFCoreDataSource-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GFCoreDataSource-umbrella.h"; sourceTree = "<group>"; };
 		F8187F5CAD09C6C6B2B54C65B4A807C9 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MASShorthandAdditions.h"; path = "Masonry/NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		FE937DE71A73D4B7779FF934EC2373E2 /* Masonry-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Masonry-dummy.m"; sourceTree = "<group>"; };
@@ -258,17 +258,6 @@
 			path = "Target Support Files/Pods-GFCoreDataSource_Tests";
 			sourceTree = "<group>";
 		};
-		7491BF4F0756D560056A81617D1C667D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				B49466EBB7C62A4BDAE13890069D501A /* GFDataSource.h */,
-				C52990B4806DA85FB02F2FF0BDC9FB00 /* GFDataSource.m */,
-				B01D136A189F1FBB97FC08B66003877B /* GFObjectOperation.h */,
-				7C4700C2825E1A37B0033DB56F6E8AF1 /* GFObjectOperation.m */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
@@ -311,6 +300,7 @@
 				3980E01C213ECEDEABAC38C1CFD3946D /* ViewController+MASAdditions.m */,
 				AB2D74BCA437C31F2B7B0E2905262257 /* Support Files */,
 			);
+			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -326,6 +316,18 @@
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Masonry";
+			sourceTree = "<group>";
+		};
+		BB72B85484B94E652BC41500C500FAF6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				16CFC13570ED0A3D6A4ED7C8466B0CC1 /* GFDataSource.h */,
+				E5C7821ACFC5A4475A62C4B30F4B3553 /* GFDataSource.m */,
+				B0B888C6A2B27BDA0B9E023C2EF57AEE /* GFObjectOperation.h */,
+				B2D30B45B3F56783B872F0FF8FF6891C /* GFObjectOperation.m */,
+			);
+			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		E6EE98446B568159EE277B68FD442AF0 /* iOS */ = {
@@ -362,8 +364,9 @@
 		F98DBD35DCE83F6FA3B481BEEE5FC97C /* GFCoreDataSource */ = {
 			isa = PBXGroup;
 			children = (
-				7491BF4F0756D560056A81617D1C667D /* Classes */,
+				BB72B85484B94E652BC41500C500FAF6 /* Classes */,
 			);
+			name = GFCoreDataSource;
 			path = GFCoreDataSource;
 			sourceTree = "<group>";
 		};
@@ -378,13 +381,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8CCF72EE4697FA6D3830EF5A09FCA96D /* Headers */ = {
+		94C53003D5C39E41DFA13DA3A8FA4A16 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C09E7A39B8FEA2CBB67CB05E0AFDE483 /* GFDataSource.h in Headers */,
-				3AD72E76235C39ADF76C243D0D4C427E /* GFCoreDataSource-umbrella.h in Headers */,
-				79125B2B951E46993BAB5F022594345F /* GFObjectOperation.h in Headers */,
+				B7812A2FB051FDEE61A02D1DC3384BB7 /* GFCoreDataSource-umbrella.h in Headers */,
+				09D005960BDDBF836A524DFDBA8019AE /* GFDataSource.h in Headers */,
+				05E0D93E00EEE665D6FF66F7B822B7FF /* GFObjectOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,9 +446,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1F6FC96D8E9001AF40B2C545A65F130 /* Build configuration list for PBXNativeTarget "GFCoreDataSource" */;
 			buildPhases = (
-				AC2EF732ABB2CAB7BE4E66136CF42A20 /* Sources */,
+				B2094E459D9159DEB6447B74E17C0692 /* Sources */,
 				B4564A228DF77D34F73F1CAB1152418B /* Frameworks */,
-				8CCF72EE4697FA6D3830EF5A09FCA96D /* Headers */,
+				94C53003D5C39E41DFA13DA3A8FA4A16 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -556,13 +559,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AC2EF732ABB2CAB7BE4E66136CF42A20 /* Sources */ = {
+		B2094E459D9159DEB6447B74E17C0692 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				496082B14990C4AC5E2CC8CCB19A348E /* GFDataSource.m in Sources */,
-				02CEC17C0F758D669CDC4F7237F20239 /* GFCoreDataSource-dummy.m in Sources */,
-				48C8B22CF760F831A1AC249CEAA1E20A /* GFObjectOperation.m in Sources */,
+				9199796DB244D066FD8374898C874C45 /* GFCoreDataSource-dummy.m in Sources */,
+				832F792E95D9D4D247C590BA5EF6B555 /* GFDataSource.m in Sources */,
+				BDB73BC2B3EEE5E947DA2B839B9891CB /* GFObjectOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

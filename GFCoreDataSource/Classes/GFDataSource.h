@@ -48,9 +48,8 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 + (instancetype)sharedClient;
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex;
-
-- (GFObjectOperation *)newProcessor;
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
+                                       class:(Class)class;
 
 - (void)registerDelegate:(id<GFDataSourceDelegate>)delegate
                   entity:(nonnull NSString *)entityName
@@ -73,9 +72,6 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 - (nullable NSString *)keyForController:(NSFetchedResultsController *)controller;
 - (id <GFDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller;
 - (NSEnumerator <NSFetchedResultsController *> *)fetchedResultsControllerEnumerator;
-
-- (void)startSync;
-- (void)finishSync;
 
 - (void)startSyncEntity:(NSString *)entity predicate:(nullable NSPredicate *)predicate;
 - (void)finishSyncEntity:(NSString *)entity predicate:(nullable NSPredicate *)predicate;
