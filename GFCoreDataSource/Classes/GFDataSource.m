@@ -1,6 +1,6 @@
 //
 //  GFDataSource.m
-//  YuCloud
+//  GFCoreDataSource
 //
 //  Created by guofengld on 16/3/24.
 //  Copyright © 2016年 guofengld. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  GFObjectOperation.m
-//  YuCloud
+//  GFCoreDataSource
 //
 //  Created by 熊国锋 on 15/12/19.
 //  Copyright © 2015年 VIROYAL-ELEC. All rights reserved.
