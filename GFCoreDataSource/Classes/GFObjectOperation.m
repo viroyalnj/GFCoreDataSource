@@ -72,7 +72,7 @@
             
             NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
             for (NSManagedObject *item in objects) {
-                [self.managedObjectContext deleteObject:item];
+                [self onDeleteObject:item];
             }
         }
     }
@@ -138,8 +138,7 @@
         for (NSManagedObject *item in objects) {
             NSNumber *refCount = [item valueForKey:@"refCount"];
             if ([refCount integerValue] == 0) {
-                NSLog(@"GFObjectOperation end sync delete item: %@", item);
-                [self.managedObjectContext deleteObject:item];
+                [self onDeleteObject:item];
             }
         }
     }
