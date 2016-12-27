@@ -2,8 +2,8 @@
 //  GFObjectOperation.m
 //  GFCoreDataSource
 //
-//  Created by 熊国锋 on 15/12/19.
-//  Copyright © 2015年 VIROYAL-ELEC. All rights reserved.
+//  Created by guofengld on 16/12/12.
+//  Copyright © 2016年 guofengld. All rights reserved.
 //
 
 #import "GFObjectOperation.h"
@@ -11,11 +11,19 @@
 @interface GFObjectOperation ()
 
 @property (nonatomic, strong) NSManagedObjectContext            *managedObjectContext;
-
+@property (nonatomic, strong) NSPersistentStoreCoordinator      *persistentStoreCoordinator;
 
 @end
 
 @implementation GFObjectOperation
+
+- (instancetype)initWithCoordinator:(NSPersistentContainer *)coordinator {
+    if (self = [super init]) {
+        self.persistentStoreCoordinator = coordinator;
+    }
+    
+    return self;
+}
 
 - (void)main {
     if (self.delegate && [self.delegate respondsToSelector:@selector(editDidSave:)]) {

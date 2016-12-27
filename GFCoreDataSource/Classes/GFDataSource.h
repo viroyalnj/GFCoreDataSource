@@ -2,7 +2,7 @@
 //  GFDataSource.h
 //  GFCoreDataSource
 //
-//  Created by guofengld on 16/3/24.
+//  Created by guofengld on 16/12/12.
 //  Copyright © 2016年 guofengld. All rights reserved.
 //
 
@@ -43,12 +43,14 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 @interface GFDataSource : NSObject < ObjectProcessDelegate >
 
-@property (nonatomic, weak)     id <GFDataSourceDelegate>      delegate;
+@property (nonatomic, weak)     id <GFDataSourceDelegate>       delegate;
 @property (nonatomic, readonly) NSManagedObjectContext          *managedObjectContext;
+@property (nonatomic, readonly) NSPersistentStoreCoordinator    *persistentStoreCoordinator;
 
 + (instancetype)sharedClient;
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
+                                 coordinator:(nullable NSPersistentStoreCoordinator *)coordinator
                                        class:(Class)class;
 
 - (void)registerDelegate:(id<GFDataSourceDelegate>)delegate

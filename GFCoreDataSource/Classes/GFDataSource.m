@@ -2,7 +2,7 @@
 //  GFDataSource.m
 //  GFCoreDataSource
 //
-//  Created by guofengld on 16/3/24.
+//  Created by guofengld on 16/12/12.
 //  Copyright © 2016年 guofengld. All rights reserved.
 //
 
@@ -11,6 +11,7 @@
 @interface GFDataSource () < NSFetchedResultsControllerDelegate >
 
 @property (nonatomic, strong)   NSManagedObjectContext          *managedObjectContext;
+@property (nonatomic, strong)   NSPersistentStoreCoordinator    *persistentStoreCoordinator;
 @property (nonatomic, copy)     Class                           objectClass;
 
 @property (nonatomic, strong)   NSMutableDictionary             *operations;
@@ -29,9 +30,12 @@
     return nil;
 }
 
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex class:(nonnull Class)class {
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
+                                 coordinator:(NSPersistentStoreCoordinator *)coordinator
+                                       class:(Class)class {
     if (self = [super init]) {
         self.managedObjectContext = managedContex;
+        self.persistentStoreCoordinator = coordinator;
         self.objectClass = class;
     }
     
@@ -40,7 +44,7 @@
 
 - (GFObjectOperation *)newOperation {
     NSAssert(self.objectClass, @"must not be null");
-    return [[self.objectClass alloc] init];
+    return [[self.objectClass alloc] initWithCoordinator:self.persistentStoreCoordinator];
 }
 
 - (NSMutableDictionary *)operations {
@@ -202,7 +206,6 @@
 
 - (NSOperation *)addOperation:(GFObjectOperation *)processor wait:(BOOL)wait {
     processor.delegate = self;
-    processor.persistentStoreCoordinator = self.managedObjectContext.persistentStoreCoordinator;
     
     return [self addOperation:processor
                          wait:wait
@@ -213,7 +216,6 @@
                          wait:(BOOL)wait
                   finishBlock:(CommonBlock)block {
     processor.delegate = self;
-    processor.persistentStoreCoordinator = self.managedObjectContext.persistentStoreCoordinator;
     
     [self.operationQueue addOperations:@[processor] waitUntilFinished:wait];
     if (block) {

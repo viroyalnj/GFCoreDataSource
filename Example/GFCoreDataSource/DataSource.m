@@ -112,7 +112,8 @@
     __block DataSource *client;
     dispatch_once(&onceToken, ^{
         client = [[DataSource alloc] initWithManagedObjectContext:[AppDelegate appDelegate].managedObjectContext
-                  class:[ObjectOperation class]];
+                                                      coordinator:[AppDelegate appDelegate].persistentStoreCoordinator
+                                                            class:[ObjectOperation class]];
     });
     
     return client;

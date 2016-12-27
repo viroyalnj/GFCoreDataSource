@@ -2,8 +2,8 @@
 //  GFObjectOperation.h
 //  GFCoreDataSource
 //
-//  Created by 熊国锋 on 15/12/19.
-//  Copyright © 2015年 VIROYAL-ELEC. All rights reserved.
+//  Created by guofengld on 16/12/12.
+//  Copyright © 2016年 guofengld. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -20,7 +20,7 @@
 
 @property (nonatomic, weak)     id <ObjectProcessDelegate>      delegate;
 @property (nonatomic, readonly) NSManagedObjectContext          *managedObjectContext;
-@property (nonatomic, strong)   NSPersistentStoreCoordinator    *persistentStoreCoordinator;
+@property (nonatomic, readonly) NSPersistentStoreCoordinator    *persistentStoreCoordinator;
 
 @property (nonatomic, strong) NSMutableArray                    *startSyncDataInfo;
 @property (nonatomic, strong) NSMutableArray                    *finishSyncDataInfo;
@@ -31,6 +31,8 @@
 @property (nonatomic, strong) NSMutableArray                    *clearDataInfo;
 
 @property (nonatomic, copy)   NSString                          *identifier;
+
+- (instancetype)initWithCoordinator:(NSPersistentContainer *)coordinator;
 
 - (void)onAddObject:(id)info;
 - (void)onEditObject:(NSManagedObject *)object edit:(NSDictionary *)edit;

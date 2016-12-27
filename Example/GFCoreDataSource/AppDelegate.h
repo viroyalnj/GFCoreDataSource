@@ -13,6 +13,8 @@
 + (AppDelegate *)appDelegate;
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, readonly) NSManagedObjectContext  *managedObjectContext;
+
+@property (nonatomic, readonly) NSManagedObjectContext          *managedObjectContext;
+@property (nonatomic, readonly) NSPersistentStoreCoordinator    *persistentStoreCoordinator;
 
 @end

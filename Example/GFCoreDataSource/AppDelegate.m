@@ -14,7 +14,7 @@
 @interface AppDelegate ()
 
 @property (nonatomic, strong) NSManagedObjectContext            *managedObjectContext;
-@property (nonatomic, strong) NSPersistentStoreCoordinator      *persistentStoreCoordinate;
+@property (nonatomic, strong) NSPersistentStoreCoordinator      *persistentStoreCoordinator;
 
 @end
 
@@ -64,23 +64,23 @@
 - (NSManagedObjectContext *)managedObjectContext {
     if (!_managedObjectContext) {
         _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-        _managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinate;
+        _managedObjectContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
     }
     
     return _managedObjectContext;
 }
 
-- (NSPersistentStoreCoordinator *)persistentStoreCoordinate {
-    if (!_persistentStoreCoordinate) {
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    if (!_persistentStoreCoordinator) {
         NSURL *urlModel = [[NSBundle mainBundle] URLForResource:@"Model"
                                                   withExtension:@"momd"];
         NSManagedObjectModel *model = [[NSManagedObjectModel alloc] initWithContentsOfURL:urlModel];
-        _persistentStoreCoordinate = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+        _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
         
         NSURL *urlStore = [[[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject] URLByAppendingPathComponent:@"data.sqlite"];
         
         NSError *error;
-        if (![_persistentStoreCoordinate addPersistentStoreWithType:NSSQLiteStoreType
+        if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
                                                       configuration:nil
                                                                 URL:urlStore
                                                             options:nil
@@ -89,7 +89,7 @@
         }
     }
     
-    return _persistentStoreCoordinate;
+    return _persistentStoreCoordinator;
 }
 
 @end
