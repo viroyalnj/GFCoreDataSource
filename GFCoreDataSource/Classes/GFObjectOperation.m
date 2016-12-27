@@ -78,10 +78,10 @@
     }
     
     while ([self.insertDataInfo count]) {
-        id info = [self.insertDataInfo firstObject];
-        [self.insertDataInfo removeObject:info];
+        id object = [self.insertDataInfo firstObject];
+        [self.insertDataInfo removeObject:object];
         
-        [self onAddObject:info];
+        [self onAddObject:object];
     }
     
     while ([self.editDataInfo count]) {

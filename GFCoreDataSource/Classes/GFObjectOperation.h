@@ -34,7 +34,7 @@
 
 - (instancetype)initWithCoordinator:(NSPersistentStoreCoordinator *)coordinator;
 
-- (void)onAddObject:(id)info;
+- (void)onAddObject:(id)object;
 - (void)onEditObject:(NSManagedObject *)object edit:(NSDictionary *)edit;
 - (void)onDeleteObject:(NSManagedObject *)object;
 
