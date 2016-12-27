@@ -17,7 +17,7 @@
 
 @implementation GFObjectOperation
 
-- (instancetype)initWithCoordinator:(NSPersistentContainer *)coordinator {
+- (instancetype)initWithCoordinator:(NSPersistentStoreCoordinator *)coordinator {
     if (self = [super init]) {
         self.persistentStoreCoordinator = coordinator;
     }

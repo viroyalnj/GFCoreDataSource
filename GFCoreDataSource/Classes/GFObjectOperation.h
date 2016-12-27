@@ -32,7 +32,7 @@
 
 @property (nonatomic, copy)   NSString                          *identifier;
 
-- (instancetype)initWithCoordinator:(NSPersistentContainer *)coordinator;
+- (instancetype)initWithCoordinator:(NSPersistentStoreCoordinator *)coordinator;
 
 - (void)onAddObject:(id)info;
 - (void)onEditObject:(NSManagedObject *)object edit:(NSDictionary *)edit;
