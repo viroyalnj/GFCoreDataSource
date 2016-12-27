@@ -208,17 +208,17 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 #pragma mark - GFDataSourceDelegate
 
-- (void)dataModal:(GFDataSource *)modal willChangeContentForKey:(NSString *)key {
+- (void)dataModal:(id<GFDataSource>)modal willChangeContentForKey:(NSString *)key {
     UITableView *tableView = [key isEqualToString:self.boxDataKey]?self.boxView:self.itemView;
     [tableView beginUpdates];
 }
 
-- (void)dataModal:(GFDataSource *)modal didChangeContentForKey:(NSString *)key {
+- (void)dataModal:(id<GFDataSource>)modal didChangeContentForKey:(NSString *)key {
     UITableView *tableView = [key isEqualToString:self.boxDataKey]?self.boxView:self.itemView;
     [tableView endUpdates];
 }
 
-- (void)dataModal:(GFDataSource *)modal
+- (void)dataModal:(id<GFDataSource>)modal
  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
           atIndex:(NSUInteger)sectionIndex
     forChangeType:(NSFetchedResultsChangeType)type
@@ -238,7 +238,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-- (void)dataModal:(GFDataSource *)modal
+- (void)dataModal:(id<GFDataSource>)modal
   didChangeObject:(id)anObject
       atIndexPath:(NSIndexPath *)indexPath
     forChangeType:(NSFetchedResultsChangeType)type

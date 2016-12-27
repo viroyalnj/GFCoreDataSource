@@ -17,7 +17,7 @@
 @property (nonatomic, strong)   NSMutableDictionary             *operations;
 
 @property (nonatomic, strong)   NSMutableDictionary             *dicFetchedResultsController;
-@property (nonatomic, strong)   NSMapTable                      *dicDelegate;
+@property (nonatomic, strong)   NSMapTable                      *mapDelegate;
 
 @property (nonatomic, strong)   NSOperationQueue                *operationQueue;
 
@@ -63,13 +63,13 @@
     return _dicFetchedResultsController;
 }
 
-- (NSMapTable *)dicDelegate {
-    if (!_dicDelegate) {
-        _dicDelegate = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory
+- (NSMapTable *)mapDelegate {
+    if (!_mapDelegate) {
+        _mapDelegate = [NSMapTable mapTableWithKeyOptions:NSPointerFunctionsStrongMemory
                                              valueOptions:NSPointerFunctionsWeakMemory];
     }
     
-    return _dicDelegate;
+    return _mapDelegate;
 }
 
 - (void)registerDelegate:(id<GFDataSourceDelegate>)delegate
@@ -122,6 +122,8 @@
     return controller;
 }
 
+#pragma mark - GFDataSource
+
 - (NSInteger)numberOfSectionsForKey:(NSString *)key {
     NSFetchedResultsController *fetchedResultsController = [self fetchedResultsControllerForKey:key];
     return [[fetchedResultsController sections] count];
@@ -165,7 +167,7 @@
 }
 
 - (void)setDelegate:(id <GFDataSourceDelegate>)delegate forKey:(NSString *)key {
-    [self.dicDelegate setObject:delegate forKey:key];
+    [self.mapDelegate setObject:delegate forKey:key];
 }
 
 - (NSFetchedResultsController *)fetchedResultsControllerForKey:(NSString *)key {
@@ -173,7 +175,7 @@
 }
 
 - (id <GFDataSourceDelegate>)delegateForKey:(NSString *)key {
-    return [self.dicDelegate objectForKey:key];
+    return [self.mapDelegate objectForKey:key];
 }
 
 - (NSString *)keyForController:(NSFetchedResultsController *)controller {
@@ -188,7 +190,7 @@
 
 - (id <GFDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller {
     NSString *key = [self keyForController:controller];
-    return [self.dicDelegate objectForKey:key];
+    return [self.mapDelegate objectForKey:key];
 }
 
 - (NSEnumerator <NSFetchedResultsController *> *)fetchedResultsControllerEnumerator {

@@ -14,21 +14,22 @@ NS_ASSUME_NONNULL_BEGIN
 typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 @class GFDataSource;
+@protocol GFDataSource;
 
 @protocol GFDataSourceDelegate <NSObject>
 
 @optional
 
-- (void)dataModal:(GFDataSource *)modal willChangeContentForKey:(nullable NSString *)key;
-- (void)dataModal:(GFDataSource *)modal didChangeContentForKey:(nullable NSString *)key;
+- (void)dataModal:(id<GFDataSource>)modal willChangeContentForKey:(nullable NSString *)key;
+- (void)dataModal:(id<GFDataSource>)modal didChangeContentForKey:(nullable NSString *)key;
 
-- (void)dataModal:(GFDataSource *)modal
+- (void)dataModal:(id<GFDataSource>)modal
  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
           atIndex:(NSUInteger)sectionIndex
     forChangeType:(NSFetchedResultsChangeType)type
            forKey:(nullable NSString *)key;
 
-- (void)dataModal:(GFDataSource *)modal
+- (void)dataModal:(id<GFDataSource>)modal
   didChangeObject:(id)anObject
       atIndexPath:(NSIndexPath *)indexPath
     forChangeType:(NSFetchedResultsChangeType)type
@@ -41,9 +42,19 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 @end
 
-@interface GFDataSource : NSObject < ObjectProcessDelegate >
+@protocol GFDataSource <NSObject>
 
-@property (nonatomic, weak)     id <GFDataSourceDelegate>       delegate;
+- (NSInteger)numberOfSectionsForKey:(NSString *)key;
+- (NSInteger)numberOfItemsForKey:(NSString *)key inSection:(NSInteger)section;
+- (nullable id)objectAtIndexPath:(NSIndexPath *)indexPath forKey:(NSString *)key;
+- (nullable id<NSFetchedResultsSectionInfo>)sectionInfoForSection:(NSInteger)section key:(NSString *)key;
+- (NSArray *)allObjectsForKey:(NSString *)key;
+
+@end
+
+@interface GFDataSource : NSObject < ObjectProcessDelegate, GFDataSource >
+
+@property (nonatomic, weak)     id<GFDataSourceDelegate>        delegate;
 @property (nonatomic, readonly) NSManagedObjectContext          *managedObjectContext;
 @property (nonatomic, readonly) NSPersistentStoreCoordinator    *persistentStoreCoordinator;
 
@@ -60,19 +71,10 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
       sectionNameKeyPath:(nullable NSString *)sectionNameKeyPath
                      key:(NSString *)key;
 
-- (NSInteger)numberOfSectionsForKey:(NSString *)key;
-- (NSInteger)numberOfItemsForKey:(NSString *)key inSection:(NSInteger)section;
-- (nullable id)objectAtIndexPath:(NSIndexPath *)indexPath forKey:(NSString *)key;
-- (nullable id<NSFetchedResultsSectionInfo>)sectionInfoForSection:(NSInteger)section key:(NSString *)key;
-- (NSArray *)allObjectsForKey:(NSString *)key;
-
-- (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController forKey:(NSString *)key;
-- (void)setDelegate:(id <GFDataSourceDelegate>)delegate forKey:(NSString *)key;
-
 - (NSFetchedResultsController *)fetchedResultsControllerForKey:(NSString *)key;
-- (id <GFDataSourceDelegate>)delegateForKey:(NSString *)key;
+- (id<GFDataSourceDelegate>)delegateForKey:(NSString *)key;
 - (nullable NSString *)keyForController:(NSFetchedResultsController *)controller;
-- (id <GFDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller;
+- (id<GFDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller;
 - (NSEnumerator <NSFetchedResultsController *> *)fetchedResultsControllerEnumerator;
 
 - (void)startSyncEntity:(NSString *)entity predicate:(nullable NSPredicate *)predicate;
