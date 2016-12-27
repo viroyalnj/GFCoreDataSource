@@ -7,8 +7,7 @@
 //
 
 #import "GFDataSource.h"
-#import "BoxEntity+CoreDataClass.h"
-#import "ItemEntity+CoreDataClass.h"
+#import "Model+CoreDataModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
