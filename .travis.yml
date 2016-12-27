@@ -19,7 +19,7 @@ before_install:
 - pod install --verbose --project-directory=Example
 script:
 - xcodebuild clean -workspace Example/GFCoreDataSource.xcworkspace -scheme GFCoreDataSource-Example
-- xcodebuild -destination "platform=iOS Simulator,OS=10.2,name=iPhone 6" -workspace Example/GFCoreDataSource.xcworkspace -scheme GFCoreDataSource-Example -sdk iphonesimulator10.2 ONLY_ACTIVE_ARCH=NO;
+- xcodebuild -destination "platform=iOS Simulator,OS=10.1,name=iPhone 6" -workspace Example/GFCoreDataSource.xcworkspace -scheme GFCoreDataSource-Example -sdk iphonesimulator10.1 ONLY_ACTIVE_ARCH=NO;
 - pod lib lint GFCoreDataSource.podspec
 
-#xcodebuild -destination "platform=iOS Simulator,OS=10.2,name=iPhone 6" -workspace Example/GFCoreDataSource.xcworkspace -scheme GFCoreDataSource-Example -sdk iphonesimulator10.2 ONLY_ACTIVE_ARCH=NO
+#xcodebuild -destination "platform=iOS Simulator,OS=10.1,name=iPhone 6" -workspace Example/GFCoreDataSource.xcworkspace -scheme GFCoreDataSource-Example -sdk iphonesimulator10.1 ONLY_ACTIVE_ARCH=NO
