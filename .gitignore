@@ -19,7 +19,7 @@ xcuserdata/
 
 ## Other
 *.moved-aside
-*.xcuserstate
+#*.xcuserstate
 
 .DS_Store
 

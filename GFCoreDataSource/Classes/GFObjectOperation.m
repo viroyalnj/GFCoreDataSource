@@ -42,8 +42,6 @@
         NSString *entity = [dic valueForKey:@"entity"];
         NSPredicate *predicate = [dic valueForKey:@"predicate"];
         
-        NSLog(@"GFObjectOperation start sync for: %@", entity);
-        
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity];
         if (predicate) {
             [request setPredicate:predicate];
@@ -61,8 +59,6 @@
         
         NSArray *entities = [object valueForKey:@"entities"];
         NSPredicate *predicate = [object valueForKey:@"predicate"];
-        
-        NSLog(@"GFObjectOperation clear objects for entities: %@", entities);
         
         for (NSString *entity in entities) {
             NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity];
@@ -126,8 +122,6 @@
         
         NSString *entity = [dic valueForKey:@"entity"];
         NSPredicate *predicate = [dic valueForKey:@"predicate"];
-        
-        NSLog(@"GFObjectOperation end sync for: %@", entity);
         
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entity];
         if (predicate) {
