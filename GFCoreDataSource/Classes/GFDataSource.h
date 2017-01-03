@@ -20,25 +20,21 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 @optional
 
-- (void)dataModal:(id<GFDataSource>)modal willChangeContentForKey:(nullable NSString *)key;
-- (void)dataModal:(id<GFDataSource>)modal didChangeContentForKey:(nullable NSString *)key;
+- (void)dataSource:(id<GFDataSource>)dataSource willChangeContentForKey:(nullable NSString *)key;
+- (void)dataSource:(id<GFDataSource>)dataSource didChangeContentForKey:(nullable NSString *)key;
 
-- (void)dataModal:(id<GFDataSource>)modal
- didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
-          atIndex:(NSUInteger)sectionIndex
-    forChangeType:(NSFetchedResultsChangeType)type
-           forKey:(nullable NSString *)key;
+- (void)dataSource:(id<GFDataSource>)dataSource
+  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type
+            forKey:(nullable NSString *)key;
 
-- (void)dataModal:(id<GFDataSource>)modal
-  didChangeObject:(id)anObject
-      atIndexPath:(NSIndexPath *)indexPath
-    forChangeType:(NSFetchedResultsChangeType)type
-     newIndexPath:(NSIndexPath *)newIndexPath
-           forKey:(nullable NSString *)key;
-
-@optional
-
-- (void)modelDataUpdated:(BOOL)inserted;
+- (void)dataSource:(id<GFDataSource>)dataSource
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+            forKey:(nullable NSString *)key;
 
 @end
 

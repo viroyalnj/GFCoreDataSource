@@ -336,8 +336,8 @@
     NSString *key = [self keyForController:controller];
     id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
     
-    if ([delegate respondsToSelector:@selector(dataModal:willChangeContentForKey:)]) {
-        [delegate dataModal:self willChangeContentForKey:key];
+    if ([delegate respondsToSelector:@selector(dataSource:willChangeContentForKey:)]) {
+        [delegate dataSource:self willChangeContentForKey:key];
     }
 }
 
@@ -346,8 +346,8 @@
     NSString *key = [self keyForController:controller];
     id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
     
-    if ([delegate respondsToSelector:@selector(dataModal:didChangeContentForKey:)]) {
-        [delegate dataModal:self didChangeContentForKey:key];
+    if ([delegate respondsToSelector:@selector(dataSource:didChangeContentForKey:)]) {
+        [delegate dataSource:self didChangeContentForKey:key];
     }
 }
 
@@ -359,12 +359,12 @@
     NSString *key = [self keyForController:controller];
     id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
     
-    if ([delegate respondsToSelector:@selector(dataModal:didChangeSection:atIndex:forChangeType:forKey:)]) {
-        [delegate dataModal:self
-           didChangeSection:sectionInfo
-                    atIndex:sectionIndex
-              forChangeType:type
-                     forKey:key];
+    if ([delegate respondsToSelector:@selector(dataSource:didChangeSection:atIndex:forChangeType:forKey:)]) {
+        [delegate dataSource:self
+            didChangeSection:sectionInfo
+                     atIndex:sectionIndex
+               forChangeType:type
+                      forKey:key];
     }
 }
 
@@ -377,12 +377,13 @@
     NSString *key = [self keyForController:controller];
     id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
     
-    if ([delegate respondsToSelector:@selector(dataModal:didChangeObject:atIndexPath:forChangeType:newIndexPath:forKey:)]) {
-        [delegate dataModal:self didChangeObject:anObject
-                atIndexPath:indexPath
-              forChangeType:type
-               newIndexPath:newIndexPath
-                     forKey:key];
+    if ([delegate respondsToSelector:@selector(dataSource:didChangeObject:atIndexPath:forChangeType:newIndexPath:forKey:)]) {
+        [delegate dataSource:self
+             didChangeObject:anObject
+                 atIndexPath:indexPath
+               forChangeType:type
+                newIndexPath:newIndexPath
+                      forKey:key];
     }
 }
 
