@@ -18,10 +18,12 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 @protocol GFDataSourceDelegate <NSObject>
 
+//This method is needed
+- (void)dataSource:(id<GFDataSource>)dataSource didChangeContentForKey:(nullable NSString *)key;
+
 @optional
 
 - (void)dataSource:(id<GFDataSource>)dataSource willChangeContentForKey:(nullable NSString *)key;
-- (void)dataSource:(id<GFDataSource>)dataSource didChangeContentForKey:(nullable NSString *)key;
 
 - (void)dataSource:(id<GFDataSource>)dataSource
   didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo

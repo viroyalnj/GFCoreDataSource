@@ -1,6 +1,6 @@
 {
   "name": "GFCoreDataSource",
-  "version": "0.0.4",
+  "version": "0.2.6",
   "summary": "一个简单的Core Data 操作封装.",
   "description": "简单的Core Data 操作封装，包括\n1.数据库查询\n2.写入操作，多线程",
   "homepage": "https://github.com/guofengld/GFCoreDataSource",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/guofengld/GFCoreDataSource.git",
-    "tag": "0.0.4"
+    "tag": "0.2.6"
   },
   "platforms": {
     "ios": "8.0"

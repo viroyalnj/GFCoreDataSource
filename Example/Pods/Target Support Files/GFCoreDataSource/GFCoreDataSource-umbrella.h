@@ -2,6 +2,7 @@
 #import <UIKit/UIKit.h>
 #endif
 
+#import "GFCoreDataSource.h"
 #import "GFDataSource.h"
 #import "GFObjectOperation.h"
 

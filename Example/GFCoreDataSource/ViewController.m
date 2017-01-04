@@ -208,21 +208,21 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 #pragma mark - GFDataSourceDelegate
 
-- (void)dataModal:(id<GFDataSource>)modal willChangeContentForKey:(NSString *)key {
+- (void)dataSource:(id<GFDataSource>)dataSource willChangeContentForKey:(NSString *)key {
     UITableView *tableView = [key isEqualToString:self.boxDataKey]?self.boxView:self.itemView;
     [tableView beginUpdates];
 }
 
-- (void)dataModal:(id<GFDataSource>)modal didChangeContentForKey:(NSString *)key {
+- (void)dataSource:(id<GFDataSource>)dataSource didChangeContentForKey:(NSString *)key {
     UITableView *tableView = [key isEqualToString:self.boxDataKey]?self.boxView:self.itemView;
     [tableView endUpdates];
 }
 
-- (void)dataModal:(id<GFDataSource>)modal
- didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
-          atIndex:(NSUInteger)sectionIndex
-    forChangeType:(NSFetchedResultsChangeType)type
-           forKey:(NSString *)key {
+- (void)dataSource:(id<GFDataSource>)dataSource
+  didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
+           atIndex:(NSUInteger)sectionIndex
+     forChangeType:(NSFetchedResultsChangeType)type
+            forKey:(NSString *)key {
     UITableView *tableView = [key isEqualToString:self.boxDataKey]?self.boxView:self.itemView;
     
     switch (type) {
@@ -238,12 +238,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-- (void)dataModal:(id<GFDataSource>)modal
-  didChangeObject:(id)anObject
-      atIndexPath:(NSIndexPath *)indexPath
-    forChangeType:(NSFetchedResultsChangeType)type
-     newIndexPath:(NSIndexPath *)newIndexPath
-           forKey:(NSString *)key {
+- (void)dataSource:(id<GFDataSource>)dataSource
+   didChangeObject:(id)anObject
+       atIndexPath:(NSIndexPath *)indexPath
+     forChangeType:(NSFetchedResultsChangeType)type
+      newIndexPath:(NSIndexPath *)newIndexPath
+            forKey:(NSString *)key {
     UITableView *tableView = [key isEqualToString:self.boxDataKey]?self.boxView:self.itemView;
     
     switch (type) {

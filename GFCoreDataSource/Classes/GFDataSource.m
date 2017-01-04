@@ -346,9 +346,7 @@
     NSString *key = [self keyForController:controller];
     id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
     
-    if ([delegate respondsToSelector:@selector(dataSource:didChangeContentForKey:)]) {
-        [delegate dataSource:self didChangeContentForKey:key];
-    }
+    [delegate dataSource:self didChangeContentForKey:key];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller
