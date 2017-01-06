@@ -87,6 +87,8 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 - (void)removeObjectWithObjectID:(NSManagedObjectID *)objectID;
 - (void)removeObjectWithObjectID:(NSManagedObjectID *)objectID block:(nullable CommonBlock)block;
 
+- (void)didReceiveMemoryWarning;
+
 @end
 
 NS_ASSUME_NONNULL_END

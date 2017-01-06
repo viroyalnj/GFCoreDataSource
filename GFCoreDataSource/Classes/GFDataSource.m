@@ -316,6 +316,10 @@
     [self editObject:info block:block];
 }
 
+- (void)didReceiveMemoryWarning {
+    
+}
+
 #pragma mark - ObjectProcessDelegate
 
 - (void)editDidSave:(NSNotification *)saveNotification {
