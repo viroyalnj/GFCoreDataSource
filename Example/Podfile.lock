@@ -1,5 +1,5 @@
 PODS:
-  - GFCoreDataSource (0.2.6)
+  - GFCoreDataSource (0.2.7)
   - Masonry (1.0.2)
 
 DEPENDENCIES:
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  GFCoreDataSource: 09f2c4b3d62cf8b14346868a09a2b877fae8ed6e
+  GFCoreDataSource: 03cd2798ee3725da8607f91925930a18f943c9d1
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
 
 PODFILE CHECKSUM: de0fa99fc7a2bcbf886c6a7202931d0fdfe05669

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GFCoreDataSource'
-  s.version          = '0.2.6'
+  s.version          = '0.2.7'
   s.summary          = '一个简单的Core Data 操作封装.'
 
 # This description is used to generate tags and improve search results.
@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'GFCoreDataSource/Classes/**/*'
+  s.source_files = 'GFCoreDataSource/**/*'
   
   # s.resource_bundles = {
   #   'GFCoreDataSource' => ['GFCoreDataSource/Assets/*.png']
