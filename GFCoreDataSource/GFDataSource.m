@@ -101,6 +101,8 @@
                                             sectionNameKeyPath:(NSString *)sectionNameKeyPath {
     NSFetchedResultsController *controller = [self fetchedResultsControllerForKey:key];
     if (!controller) {
+        NSAssert(self.managedObjectContext, @"should be initialized on the main thread!");
+        
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
         NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
                                                   inManagedObjectContext:self.managedObjectContext];
