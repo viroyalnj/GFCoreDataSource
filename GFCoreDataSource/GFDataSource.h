@@ -58,6 +58,8 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 + (instancetype)sharedClient;
 
+- (instancetype)init NS_UNAVAILABLE;
+
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
                                  coordinator:(nullable NSPersistentStoreCoordinator *)coordinator
                                        class:(Class)class;
