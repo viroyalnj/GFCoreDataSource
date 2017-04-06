@@ -307,15 +307,18 @@
     [self addOperation:process wait:YES];
 }
 
-- (void)removeObjectWithObjectID:(NSManagedObjectID *)objectID {
-    [self removeObjectWithObjectID:objectID block:nil];
+- (void)deleteObject:(id)data {
+    GFObjectOperation *process = [self newOperation];
+    [process.deleteDataInfo addObject:data];
+    
+    [self addOperation:process wait:YES];
 }
 
-- (void)removeObjectWithObjectID:(NSManagedObjectID *)objectID block:(CommonBlock)block {
-    NSDictionary *info = @{@"objectID" : objectID,
-                           @"action" : @"Delete"};
+- (void)deleteObjects:(NSArray *)array {
+    GFObjectOperation *process = [self newOperation];
+    [process.deleteDataInfo addObjectsFromArray:array];
     
-    [self editObject:info block:block];
+    [self addOperation:process wait:YES];
 }
 
 - (void)didReceiveMemoryWarning {

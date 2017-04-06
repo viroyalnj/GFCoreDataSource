@@ -68,7 +68,7 @@
             
             NSArray *objects = [self.managedObjectContext executeFetchRequest:request error:&error];
             for (NSManagedObject *item in objects) {
-                [self onDeleteObject:item];
+                [self.managedObjectContext deleteObject:item];
             }
         }
     }
@@ -78,6 +78,13 @@
         [self.insertDataInfo removeObject:object];
         
         [self onAddObject:object];
+    }
+    
+    while ([self.deleteDataInfo count]) {
+        id object = [self.deleteDataInfo firstObject];
+        [self.deleteDataInfo removeObject:object];
+        
+        [self onDeleteObject:object];
     }
     
     while ([self.editDataInfo count]) {
@@ -102,13 +109,8 @@
         
         for (NSManagedObject *item in objects) {
             if (item && ![item isDeleted]) {
-                if ([action isEqualToString:@"Delete"]) {
-                    [self onDeleteObject:item];
-                }
-                else if ([action isEqualToString:@"Edit"]) {
-                    NSDictionary *edit = info[@"Edit"];
-                    [self onEditObject:item edit:edit];
-                }
+                NSDictionary *edit = info[@"Edit"];
+                [self onEditObject:item edit:edit];
             }
             else {
                 NSLog(@"item was deleted: %@", item);
@@ -132,7 +134,7 @@
         for (NSManagedObject *item in objects) {
             NSNumber *refCount = [item valueForKey:@"refCount"];
             if ([refCount integerValue] == 0) {
-                [self onDeleteObject:item];
+                [self.managedObjectContext deleteObject:item];
             }
         }
     }
@@ -173,6 +175,14 @@
     return _insertDataInfo;
 }
 
+- (NSMutableArray *)deleteDataInfo {
+    if (!_deleteDataInfo) {
+        _deleteDataInfo = [NSMutableArray array];
+    }
+    
+    return _deleteDataInfo;
+}
+
 - (NSMutableArray *)clearDataInfo {
     if (_clearDataInfo == nil) {
         _clearDataInfo = [NSMutableArray arrayWithCapacity:10];
@@ -209,15 +219,15 @@
     NSAssert(NO, @"implement this in your sub class");
 }
 
+- (void)onDeleteObject:(id)object {
+    NSAssert(NO, @"implement this in your sub class");
+}
+
 - (void)onEditObject:(NSManagedObject *)object edit:(NSDictionary *)edit {
     for (NSString *aa in [edit allKeys]) {
         id bb = [edit valueForKey:aa];
         [object setValue:bb forKey:aa];
     }
-}
-
-- (void)onDeleteObject:(NSManagedObject *)object {
-    [self.managedObjectContext deleteObject:object];
 }
 
 - (void)dealloc {

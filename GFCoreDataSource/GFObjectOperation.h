@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSMutableArray                    *finishSyncDataInfo;
 
 @property (nonatomic, strong) NSMutableArray                    *insertDataInfo;
+@property (nonatomic, strong) NSMutableArray                    *deleteDataInfo;
 @property (nonatomic, strong) NSMutableArray                    *editDataInfo;
 
 @property (nonatomic, strong) NSMutableArray                    *clearDataInfo;
@@ -35,7 +36,7 @@
 - (instancetype)initWithCoordinator:(NSPersistentStoreCoordinator *)coordinator;
 
 - (void)onAddObject:(id)object;
+- (void)onDeleteObject:(id)object;
 - (void)onEditObject:(NSManagedObject *)object edit:(NSDictionary *)edit;
-- (void)onDeleteObject:(NSManagedObject *)object;
 
 @end
