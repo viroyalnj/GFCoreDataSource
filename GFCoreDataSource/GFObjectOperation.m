@@ -94,7 +94,6 @@
         NSPredicate *predicate = info[@"predicate"];
         NSManagedObjectID *objectID = info[@"objectID"];
         NSString *entityName = info[@"entity"];
-        NSString *action = info[@"action"];
         
         NSArray *objects;
         if (objectID) {

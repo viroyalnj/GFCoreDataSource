@@ -120,11 +120,11 @@
          deleteAt:(NSIndexPath *)indexPath {
     if (tableView == self.boxView) {
         BoxEntity *object = [self.dataSource objectAtIndexPath:indexPath forKey:self.boxDataKey];
-        [self.dataSource removeObjectWithObjectID:object.objectID];
+        [self.dataSource deleteObject:object];
     }
     else {
         ItemEntity *object = [self.dataSource objectAtIndexPath:indexPath forKey:self.itemDataKey];
-        [self.dataSource removeObjectWithObjectID:object.objectID];
+        [self.dataSource deleteObject:object];
     }
 }
 
