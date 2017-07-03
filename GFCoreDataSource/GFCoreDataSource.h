@@ -9,6 +9,7 @@
 #ifndef GFCoreDataSource_h
 #define GFCoreDataSource_h
 
+#import "NSManagedObject+GFCoreDataSource.h"
 #import "GFObjectOperation.h"
 #import "GFDataSource.h"
 
