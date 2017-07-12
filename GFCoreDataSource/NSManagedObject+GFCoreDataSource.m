@@ -11,7 +11,7 @@
 @implementation NSManagedObject (GFCoreDataSource)
 
 + (NSString *)entityName {
-    return [self entity].name;
+    return NSStringFromClass([self class]);
 }
 
 @end
