@@ -1,6 +1,0 @@
-framework module GFCoreDataSource {
-  umbrella header "GFCoreDataSource-umbrella.h"
-
-  export *
-  module * { export * }
-}
