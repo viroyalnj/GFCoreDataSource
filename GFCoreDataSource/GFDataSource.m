@@ -192,7 +192,16 @@
 
 - (id <GFDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller {
     NSString *key = [self keyForController:controller];
-    return [self.mapDelegate objectForKey:key];
+    id delegate;
+    if (key) {
+        delegate = [self.mapDelegate objectForKey:key];
+        if (!delegate) {
+            [self.dicFetchedResultsController removeObjectForKey:key];
+            return nil;
+        }
+    }
+    
+    return delegate;
 }
 
 - (NSEnumerator <NSFetchedResultsController *> *)fetchedResultsControllerEnumerator {
