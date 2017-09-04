@@ -317,6 +317,8 @@
 }
 
 - (void)deleteObject:(id)data {
+    NSAssert(data, @"should not be nil");
+    
     GFObjectOperation *process = [self newOperation];
     [process.deleteDataInfo addObject:data];
     
@@ -324,6 +326,8 @@
 }
 
 - (void)deleteObjects:(NSArray *)array {
+    NSAssert(array.count, @"should not be empty");
+    
     GFObjectOperation *process = [self newOperation];
     [process.deleteDataInfo addObjectsFromArray:array];
     
