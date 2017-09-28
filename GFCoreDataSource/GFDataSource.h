@@ -60,7 +60,7 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
                                  coordinator:(nullable NSPersistentStoreCoordinator *)coordinator
-                                       class:(Class)class;
+                                       class:(Class)operationClass;
 
 - (void)registerDelegate:(id<GFDataSourceDelegate>)delegate
                   entity:(nonnull NSString *)entityName

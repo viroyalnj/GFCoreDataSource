@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong)   NSManagedObjectContext          *managedObjectContext;
 @property (nonatomic, strong)   NSPersistentStoreCoordinator    *persistentStoreCoordinator;
-@property (nonatomic, copy)     Class                           objectClass;
+@property (nonatomic, copy)     Class                           operationClass;
 
 @property (nonatomic, strong)   NSMutableDictionary             *operations;
 
@@ -32,19 +32,19 @@
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
                                  coordinator:(NSPersistentStoreCoordinator *)coordinator
-                                       class:(Class)class {
+                                       class:(Class)operationClass {
     if (self = [super init]) {
         self.managedObjectContext = managedContex;
         self.persistentStoreCoordinator = coordinator;
-        self.objectClass = class;
+        self.operationClass = operationClass;
     }
     
     return self;
 }
 
 - (GFObjectOperation *)newOperation {
-    NSAssert(self.objectClass, @"must not be null");
-    return [[self.objectClass alloc] initWithCoordinator:self.persistentStoreCoordinator];
+    NSAssert(self.operationClass, @"must not be null");
+    return [[self.operationClass alloc] initWithCoordinator:self.persistentStoreCoordinator];
 }
 
 - (NSMutableDictionary *)operations {
