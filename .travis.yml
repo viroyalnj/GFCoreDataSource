@@ -6,7 +6,7 @@ branches:
   only:
     - master
 language: objective-c
-osx_image: xcode8.1
+osx_image: xcode8.3
 env:
   matrix:
     - OS='10.1' name='iPhone 6'

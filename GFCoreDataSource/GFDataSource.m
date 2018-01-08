@@ -83,9 +83,7 @@
                                                                            entity:entityName
                                                                   sortDescriptors:sortDescriptors
                                                                sectionNameKeyPath:sectionNameKeyPath];
-    if (predicate) {
-        [controller.fetchRequest setPredicate:predicate];
-    }
+    [controller.fetchRequest setPredicate:predicate];
     
     if (sortDescriptors) {
         [controller.fetchRequest setSortDescriptors:sortDescriptors];
