@@ -276,10 +276,7 @@
 }
 
 - (NSOperation *)addObject:(id)data {
-    GFObjectOperation *process = [self newOperation];
-    [process.insertDataInfo addObject:data];
-    
-    return [self addOperation:process wait:YES];
+    return [self addObject:data block:nil];
 }
 
 - (NSOperation *)addObject:(id)data block:(CommonBlock)block {
