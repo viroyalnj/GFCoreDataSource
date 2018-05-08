@@ -60,7 +60,10 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
                                  coordinator:(nullable NSPersistentStoreCoordinator *)coordinator
-                                       class:(Class)operationClass;
+                                       class:(Class)operationClass __deprecated_msg("This method is deprecated");;
+
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
+                                 coordinator:(nullable NSPersistentStoreCoordinator *)coordinator;
 
 - (void)registerDelegate:(id<GFDataSourceDelegate>)delegate
                   entity:(nonnull NSString *)entityName
@@ -85,6 +88,22 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 - (void)clearData:(id)data;
 - (void)deleteObject:(id)data;
 - (void)deleteObjects:(NSArray *)array;
+
+- (void)addObject:(id)object
+       entityName:(NSString *)entityName;
+
+- (void)addObjects:(NSArray *)array
+        entityName:(NSString *)entityName
+          syncAll:(BOOL)syncAll
+     syncPredicate:(nullable NSPredicate *)predicate;
+
+- (void)removeObject:(id)object;
+
+- (void)removeObjects:(NSArray *)array;
+
+- (NSManagedObject *)onAddObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex;
+
+- (void)onDeleteObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex;
 
 - (void)didReceiveMemoryWarning;
 

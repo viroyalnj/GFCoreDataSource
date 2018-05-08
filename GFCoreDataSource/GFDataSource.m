@@ -20,6 +20,8 @@
 @property (nonatomic, strong)   NSMapTable                      *mapDelegate;
 
 @property (nonatomic, strong)   NSOperationQueue                *operationQueue;
+@property (nonatomic, strong)   dispatch_queue_t                ioQueue;
+@property (nonatomic, strong)   NSManagedObjectContext          *queueContext;
 
 @end
 
@@ -30,6 +32,27 @@
     return nil;
 }
 
+- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex coordinator:(NSPersistentStoreCoordinator *)coordinator {
+    if (self = [super init]) {
+        self.managedObjectContext = managedContex;
+        self.persistentStoreCoordinator = coordinator;
+        
+        NSString *string = [NSString stringWithFormat:@"com.guofengld.%@.queue", NSStringFromClass([self class])];
+        self.ioQueue = dispatch_queue_create(string.UTF8String, DISPATCH_QUEUE_SERIAL);
+        dispatch_sync(self.ioQueue, ^{
+            self.queueContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+            self.queueContext.persistentStoreCoordinator = self.persistentStoreCoordinator;
+        });
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(editDidSave:)
+                                                     name:NSManagedObjectContextDidSaveNotification
+                                                   object:self.queueContext];
+    }
+    
+    return self;
+}
+
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
                                  coordinator:(NSPersistentStoreCoordinator *)coordinator
                                        class:(Class)operationClass {
@@ -37,6 +60,8 @@
         self.managedObjectContext = managedContex;
         self.persistentStoreCoordinator = coordinator;
         self.operationClass = operationClass;
+        
+        NSLog(@"*** %@ - this method is This method is deprecated ***", NSStringFromClass([self class]));
     }
     
     return self;
@@ -327,6 +352,91 @@
     [process.deleteDataInfo addObjectsFromArray:array];
     
     [self addOperation:process wait:YES];
+}
+
+- (void)addObject:(id)object
+       entityName:(NSString *)entityName {
+    [self addObjects:@[object]
+          entityName:entityName
+             syncAll:NO
+       syncPredicate:nil];
+}
+
+- (void)addObjects:(NSArray *)array
+        entityName:(NSString *)entityName
+           syncAll:(BOOL)syncAll
+     syncPredicate:(NSPredicate *)predicate {
+    dispatch_async(self.ioQueue, ^{
+        NSManagedObjectContext *managedObjectContext = self.queueContext;
+        
+        BOOL syncFlag = NO;
+        NSEntityDescription *desc = [NSEntityDescription entityForName:entityName inManagedObjectContext:managedObjectContext];
+        for (NSPropertyDescription *item in desc.properties) {
+            if ([item.name isEqualToString:@"refCount"]) {
+                syncFlag = YES;
+                break;
+            }
+        }
+        
+        // 同步前的标记
+        NSArray *oldData = nil;
+        if ((syncAll || predicate) && syncFlag) {
+            NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+            request.predicate = predicate;
+            oldData = [managedObjectContext executeFetchRequest:request error:nil];
+            for (NSManagedObject *item in oldData) {
+                [item setValue:@0 forKey:@"refCount"];
+            }
+        }
+        
+        for (id data in array) {
+            NSManagedObject *item = [self onAddObject:data managedObjectContext:managedObjectContext];
+            
+            // 添加同步标记
+            if (syncFlag) {
+                [item setValue:@1 forKey:@"refCount"];
+            }
+        }
+        
+        // 删除失效数据
+        if (syncFlag) {
+            for (NSManagedObject *item in oldData) {
+                NSNumber *value = [item valueForKey:@"refCount"];
+                if (![item isDeleted] && [value integerValue] == 0) {
+                    [managedObjectContext deleteObject:item];
+                }
+            }
+        }
+        
+        // 保存
+        [managedObjectContext save:nil];
+    });
+}
+
+- (void)removeObject:(id)object {
+    [self removeObjects:@[object]];
+}
+
+- (void)removeObjects:(NSArray *)array {
+    dispatch_async(self.ioQueue, ^{
+        NSManagedObjectContext *managedObjectContext = self.queueContext;
+        
+        for (id data in array) {
+            [self onDeleteObject:data managedObjectContext:managedObjectContext];
+        }
+        
+        [managedObjectContext save:nil];
+    });
+}
+
+- (NSManagedObject *)onAddObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
+    NSAssert(NO, @"implement this method in your sub-class");
+    
+    return nil;
+}
+
+- (void)onDeleteObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
+    NSAssert(NO, @"implement this method in your sub-class");
 }
 
 - (void)didReceiveMemoryWarning {
