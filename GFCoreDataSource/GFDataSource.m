@@ -12,14 +12,10 @@
 
 @property (nonatomic, strong)   NSManagedObjectContext          *managedObjectContext;
 @property (nonatomic, strong)   NSPersistentStoreCoordinator    *persistentStoreCoordinator;
-@property (nonatomic, copy)     Class                           operationClass;
-
-@property (nonatomic, strong)   NSMutableDictionary             *operations;
 
 @property (nonatomic, strong)   NSMutableDictionary             *dicFetchedResultsController;
 @property (nonatomic, strong)   NSMapTable                      *mapDelegate;
 
-@property (nonatomic, strong)   NSOperationQueue                *operationQueue;
 @property (nonatomic, strong)   dispatch_queue_t                ioQueue;
 @property (nonatomic, strong)   NSManagedObjectContext          *queueContext;
 
@@ -51,33 +47,6 @@
     }
     
     return self;
-}
-
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
-                                 coordinator:(NSPersistentStoreCoordinator *)coordinator
-                                       class:(Class)operationClass {
-    if (self = [super init]) {
-        self.managedObjectContext = managedContex;
-        self.persistentStoreCoordinator = coordinator;
-        self.operationClass = operationClass;
-        
-        NSLog(@"*** %@ - This method is deprecated ***", NSStringFromClass([self class]));
-    }
-    
-    return self;
-}
-
-- (GFObjectOperation *)newOperation {
-    NSAssert(self.operationClass, @"must not be null");
-    return [[self.operationClass alloc] initWithCoordinator:self.persistentStoreCoordinator];
-}
-
-- (NSMutableDictionary *)operations {
-    if (_operations == nil) {
-        _operations = [NSMutableDictionary dictionaryWithCapacity:10];
-    }
-    
-    return _operations;
 }
 
 - (NSMutableDictionary *)dicFetchedResultsController {
@@ -231,129 +200,6 @@
     return [self.dicFetchedResultsController objectEnumerator];
 }
 
-- (NSOperationQueue *)operationQueue {
-    if (!_operationQueue) {
-        _operationQueue = [[NSOperationQueue alloc] init];
-        _operationQueue.name = [NSString stringWithFormat:@"%@ queue", NSStringFromClass([self class])];
-    }
-    
-    return _operationQueue;
-}
-
-- (NSOperation *)addOperation:(GFObjectOperation *)processor wait:(BOOL)wait {
-    processor.delegate = self;
-    
-    return [self addOperation:processor
-                         wait:wait
-                  finishBlock:nil];
-}
-
-- (NSOperation *)addOperation:(GFObjectOperation *)processor
-                         wait:(BOOL)wait
-                  finishBlock:(CommonBlock)block {
-    processor.delegate = self;
-    
-    [self.operationQueue addOperations:@[processor] waitUntilFinished:wait];
-    if (block) {
-        [self.operations setObject:block forKey:processor.identifier];
-    }
-    
-    return processor;
-}
-
-- (void)processDidFinished:(GFObjectOperation *)processor {
-    if ([NSThread isMainThread]) {
-        CommonBlock block = [self.operations objectForKey:processor.identifier];
-        if (block) {
-            block(YES, nil);
-        }
-        [self.operations removeObjectForKey:processor.identifier];
-    }
-    else {
-        [self performSelectorOnMainThread:@selector(processDidFinished:)
-                               withObject:processor
-                            waitUntilDone:NO];
-    }
-}
-
-- (void)startSyncEntity:(NSString *)entity predicate:(NSPredicate *)predicate {
-    GFObjectOperation *process = [self newOperation];
-    if (predicate) {
-        [process.startSyncDataInfo addObject:@{@"entity" : entity, @"predicate" : predicate}];
-    }
-    else {
-        [process.startSyncDataInfo addObject:@{@"entity" : entity}];
-    }
-    
-    [self addOperation:process wait:YES];
-}
-
-- (void)finishSyncEntity:(NSString *)entity predicate:(NSPredicate *)predicate {
-    GFObjectOperation *process = [self newOperation];
-    if (predicate) {
-        [process.finishSyncDataInfo addObject:@{@"entity" : entity, @"predicate" : predicate}];
-    }
-    else {
-        [process.finishSyncDataInfo addObject:@{@"entity" : entity}];
-    }
-    
-    [self addOperation:process wait:YES];
-}
-
-- (NSOperation *)addObject:(id)data {
-    return [self addObject:data block:nil];
-}
-
-- (NSOperation *)addObject:(id)data block:(CommonBlock)block {
-    GFObjectOperation *process = [self newOperation];
-    [process.insertDataInfo addObject:data];
-    
-    return [self addOperation:process wait:YES finishBlock:block];
-}
-
-- (void)addObjects:(NSArray *)array {
-    GFObjectOperation *process = [self newOperation];
-    [process.insertDataInfo addObjectsFromArray:array];
-    
-    [self addOperation:process wait:YES];
-}
-
-- (void)editObject:(id)data {
-    [self editObject:data block:nil];
-}
-
-- (void)editObject:(id)data block:(CommonBlock)block {
-    GFObjectOperation *process = [self newOperation];
-    [process.editDataInfo addObject:data];
-    
-    [self addOperation:process wait:YES finishBlock:block];
-}
-
-- (void)clearData:(id)data {
-    GFObjectOperation *process = [self newOperation];
-    [process.clearDataInfo addObject:data];
-    
-    [self addOperation:process wait:YES];
-}
-
-- (void)deleteObject:(id)data {
-    NSAssert(data, @"should not be nil");
-    
-    GFObjectOperation *process = [self newOperation];
-    [process.deleteDataInfo addObject:data];
-    
-    [self addOperation:process wait:YES];
-}
-
-- (void)deleteObjects:(NSArray *)array {
-    NSAssert(array.count, @"should not be empty");
-    
-    GFObjectOperation *process = [self newOperation];
-    [process.deleteDataInfo addObjectsFromArray:array];
-    
-    [self addOperation:process wait:YES];
-}
-
 - (void)addObject:(id)object
        entityName:(NSString *)entityName {
     [self addObjects:@[object]
@@ -413,11 +259,11 @@
     });
 }
 
-- (void)removeObject:(id)object {
-    [self removeObjects:@[object]];
+- (void)deleteObject:(id)object {
+    [self deleteObjects:@[object]];
 }
 
-- (void)removeObjects:(NSArray *)array {
+- (void)deleteObjects:(NSArray *)array {
     dispatch_async(self.ioQueue, ^{
         NSManagedObjectContext *managedObjectContext = self.queueContext;
         
@@ -510,6 +356,10 @@
                 newIndexPath:newIndexPath
                       forKey:key];
     }
+}
+
+- (void)dealloc {
+    NSAssert(NO, @"should not be released!");
 }
 
 @end

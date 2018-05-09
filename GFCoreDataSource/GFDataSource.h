@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GFObjectOperation.h"
+#import "NSManagedObject+GFCoreDataSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,17 +50,13 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 @end
 
-@interface GFDataSource : NSObject < ObjectProcessDelegate, GFDataSource >
+@interface GFDataSource : NSObject < GFDataSource >
 
 @property (nonatomic, weak)     id<GFDataSourceDelegate>        delegate;
 @property (nonatomic, readonly) NSManagedObjectContext          *managedObjectContext;
 @property (nonatomic, readonly) NSPersistentStoreCoordinator    *persistentStoreCoordinator;
 
 + (instancetype)sharedClient;
-
-- (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
-                                 coordinator:(nullable NSPersistentStoreCoordinator *)coordinator
-                                       class:(Class)operationClass __deprecated_msg("This method is deprecated");
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
                                  coordinator:(nullable NSPersistentStoreCoordinator *)coordinator;
@@ -78,17 +74,6 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 - (id<GFDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller;
 - (NSEnumerator <NSFetchedResultsController *> *)fetchedResultsControllerEnumerator;
 
-- (void)startSyncEntity:(NSString *)entity predicate:(nullable NSPredicate *)predicate;
-- (void)finishSyncEntity:(NSString *)entity predicate:(nullable NSPredicate *)predicate;
-
-- (NSOperation *)addObject:(id)data;
-- (NSOperation *)addObject:(id)data block:(nullable CommonBlock)block;
-- (void)addObjects:(NSArray *)array;
-- (void)editObject:(id)data;
-- (void)clearData:(id)data;
-- (void)deleteObject:(id)data;
-- (void)deleteObjects:(NSArray *)array;
-
 - (void)addObject:(id)object
        entityName:(NSString *)entityName;
 
@@ -97,9 +82,9 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
           syncAll:(BOOL)syncAll
      syncPredicate:(nullable NSPredicate *)predicate;
 
-- (void)removeObject:(id)object;
+- (void)deleteObject:(id)object;
 
-- (void)removeObjects:(NSArray *)array;
+- (void)deleteObjects:(NSArray *)array;
 
 - (NSManagedObject *)onAddObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex;
 
