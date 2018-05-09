@@ -16,7 +16,7 @@
 
 @end
 
-@interface GFObjectOperation : NSOperation
+@interface GFObjectOperation : NSOperation 
 
 @property (nonatomic, weak)     id <ObjectProcessDelegate>      delegate;
 @property (nonatomic, readonly) NSManagedObjectContext          *managedObjectContext;

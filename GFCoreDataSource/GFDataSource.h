@@ -60,7 +60,7 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
                                  coordinator:(nullable NSPersistentStoreCoordinator *)coordinator
-                                       class:(Class)operationClass __deprecated_msg("This method is deprecated");;
+                                       class:(Class)operationClass __deprecated_msg("This method is deprecated");
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
                                  coordinator:(nullable NSPersistentStoreCoordinator *)coordinator;

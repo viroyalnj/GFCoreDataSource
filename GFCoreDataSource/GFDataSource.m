@@ -61,7 +61,7 @@
         self.persistentStoreCoordinator = coordinator;
         self.operationClass = operationClass;
         
-        NSLog(@"*** %@ - this method is This method is deprecated ***", NSStringFromClass([self class]));
+        NSLog(@"*** %@ - This method is deprecated ***", NSStringFromClass([self class]));
     }
     
     return self;
