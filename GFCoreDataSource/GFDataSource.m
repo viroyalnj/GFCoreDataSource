@@ -212,6 +212,7 @@
         entityName:(NSString *)entityName
            syncAll:(BOOL)syncAll
      syncPredicate:(NSPredicate *)predicate {
+    NSArray *objects = array.copy;
     dispatch_async(self.ioQueue, ^{
         NSManagedObjectContext *managedObjectContext = self.queueContext;
         
@@ -235,7 +236,7 @@
             }
         }
         
-        for (id data in array) {
+        for (id data in objects) {
             NSManagedObject *item = [self onAddObject:data managedObjectContext:managedObjectContext];
             
             // 添加同步标记
