@@ -36,14 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
-@interface ObjectOperation : GFObjectOperation
-
-@end
-
 @interface DataSource : GFDataSource
-
-- (void)removeItemsWithBox:(NSString *)box;
 
 @end
 

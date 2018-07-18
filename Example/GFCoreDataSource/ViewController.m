@@ -89,7 +89,7 @@
     NSUUID *uuid = [NSUUID UUID];
     BoxData *data = [[BoxData alloc] initWithBox:[[uuid UUIDString] substringToIndex:4]];
     
-    [self.dataSource addObject:data];
+    [self.dataSource addObject:data entityName:[BoxEntity entityName]];
 }
 
 - (void)addItem {
@@ -99,7 +99,7 @@
         NSUUID *uuid = [NSUUID UUID];
         ItemData *data = [[ItemData alloc] initWithItem:[[uuid UUIDString] substringToIndex:6] box:box.box];
         
-        [self.dataSource addObject:data];
+        [self.dataSource addObject:data entityName:[ItemEntity entityName]];
     }
 }
 

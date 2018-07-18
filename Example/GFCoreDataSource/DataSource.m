@@ -44,9 +44,20 @@
 
 @end
 
-@implementation ObjectOperation
+@implementation DataSource
 
-- (void)onAddObject:(id)object {
++ (instancetype)sharedClient {
+    static dispatch_once_t onceToken;
+    __block DataSource *client;
+    dispatch_once(&onceToken, ^{
+        client = [[DataSource alloc] initWithManagedObjectContext:[AppDelegate appDelegate].managedObjectContext
+                                                      coordinator:[AppDelegate appDelegate].persistentStoreCoordinator];
+    });
+    
+    return client;
+}
+
+- (NSManagedObject *)onAddObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
     if ([object isKindOfClass:[BoxData class]]) {
         BoxData *data = (BoxData *)object;
         
@@ -62,6 +73,8 @@
         
         item.box = data.box;
         item.date = data.date;
+        
+        return item;
     }
     else if ([object isKindOfClass:[ItemData class]]) {
         ItemData *data = (ItemData *)object;
@@ -79,10 +92,14 @@
         item.item = data.item;
         item.date = data.date;
         item.box = data.box;
+        
+        return item;
     }
+    
+    return nil;
 }
 
-- (void)onDeleteObject:(NSManagedObject *)object {
+- (void)onDeleteObject:(id)object managedObjectContext:(NSManagedObjectContext *)managedObjectContex {
     if ([object isKindOfClass:[ItemEntity class]]) {
         [self.managedObjectContext deleteObject:object];
     }
@@ -101,30 +118,6 @@
     else {
         NSAssert(NO, @"type error");
     }
-}
-
-@end
-
-@implementation DataSource
-
-+ (instancetype)sharedClient {
-    static dispatch_once_t onceToken;
-    __block DataSource *client;
-    dispatch_once(&onceToken, ^{
-        client = [[DataSource alloc] initWithManagedObjectContext:[AppDelegate appDelegate].managedObjectContext
-                                                      coordinator:[AppDelegate appDelegate].persistentStoreCoordinator
-                                                            class:[ObjectOperation class]];
-    });
-    
-    return client;
-}
-
-- (void)removeItemsWithBox:(NSString *)box {
-    NSDictionary *info = @{@"entity" : [ItemEntity entityName],
-                           @"action" : @"Delete",
-                           @"predicate" : [NSPredicate predicateWithFormat:@"box == %@", box]};
-    
-    [self editObject:info];
 }
 
 @end
