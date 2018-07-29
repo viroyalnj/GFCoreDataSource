@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		584398D76733DCC02A4A32F0 /* Pods_GFCoreDataSource_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 306BF0F3CE881C6974647D8F /* Pods_GFCoreDataSource_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -20,10 +19,10 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		71413FEE704D280D876F4F77 /* Pods_GFCoreDataSource_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC8E886B3ABE855454569250 /* Pods_GFCoreDataSource_Example.framework */; };
 		AEA604B81E07FF8F00058D36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEA604B71E07FF8F00058D36 /* LaunchScreen.storyboard */; };
 		AEA604C51E0810BE00058D36 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEA604C31E0810BE00058D36 /* Model.xcdatamodeld */; };
 		AEA604CF1E0817C900058D36 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA604CE1E0817C900058D36 /* DataSource.m */; };
+		B0D4D1852536AE477FA237D2 /* Pods_VICoreDataSource_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3318E607525EF991E527F00 /* Pods_VICoreDataSource_Example.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,22 +36,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		077BFA3D0610F6EFB9270656 /* Pods-GFCoreDataSource_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFCoreDataSource_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GFCoreDataSource_Tests/Pods-GFCoreDataSource_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		306BF0F3CE881C6974647D8F /* Pods_GFCoreDataSource_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GFCoreDataSource_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DD9BAC91468D406D550C267 /* Pods-GFCoreDataSource_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFCoreDataSource_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-GFCoreDataSource_Example/Pods-GFCoreDataSource_Example.release.xcconfig"; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* GFCoreDataSource_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GFCoreDataSource_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C221F003BD8AFE8EAEEEEDE /* Pods-VICoreDataSource_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VICoreDataSource_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VICoreDataSource_Example/Pods-VICoreDataSource_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		6003F58A195388D20070C39A /* VICoreDataSource_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VICoreDataSource_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		6003F595195388D20070C39A /* GFCoreDataSource-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GFCoreDataSource-Info.plist"; sourceTree = "<group>"; };
+		6003F595195388D20070C39A /* VICoreDataSource-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "VICoreDataSource-Info.plist"; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6003F59B195388D20070C39A /* GFCoreDataSource-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GFCoreDataSource-Prefix.pch"; sourceTree = "<group>"; };
+		6003F59B195388D20070C39A /* VICoreDataSource-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VICoreDataSource-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6003F5A5195388D20070C39A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6003F5AE195388D20070C39A /* GFCoreDataSource_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GFCoreDataSource_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5AE195388D20070C39A /* VICoreDataSource_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VICoreDataSource_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -66,9 +65,10 @@
 		AEA604CE1E0817C900058D36 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		AEA604D01E08189C00058D36 /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = .travis.yml; path = ../.travis.yml; sourceTree = "<group>"; };
 		BC8E886B3ABE855454569250 /* Pods_GFCoreDataSource_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GFCoreDataSource_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF20B677D4822215136BA3B0 /* GFCoreDataSource.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GFCoreDataSource.podspec; path = ../GFCoreDataSource.podspec; sourceTree = "<group>"; };
+		C3D99A788E91709B9864B6C1 /* Pods-VICoreDataSource_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VICoreDataSource_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-VICoreDataSource_Example/Pods-VICoreDataSource_Example.release.xcconfig"; sourceTree = "<group>"; };
+		CF20B677D4822215136BA3B0 /* VICoreDataSource.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = VICoreDataSource.podspec; path = ../VICoreDataSource.podspec; sourceTree = "<group>"; };
 		ECB9DE2AF2B4AA64EFE9D331 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		F95FEE6BC592B543A65D298C /* Pods-GFCoreDataSource_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GFCoreDataSource_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GFCoreDataSource_Tests/Pods-GFCoreDataSource_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		F3318E607525EF991E527F00 /* Pods_VICoreDataSource_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VICoreDataSource_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +79,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				71413FEE704D280D876F4F77 /* Pods_GFCoreDataSource_Example.framework in Frameworks */,
+				B0D4D1852536AE477FA237D2 /* Pods_VICoreDataSource_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +90,6 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				584398D76733DCC02A4A32F0 /* Pods_GFCoreDataSource_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,8 +112,8 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* GFCoreDataSource_Example.app */,
-				6003F5AE195388D20070C39A /* GFCoreDataSource_Tests.xctest */,
+				6003F58A195388D20070C39A /* VICoreDataSource_Example.app */,
+				6003F5AE195388D20070C39A /* VICoreDataSource_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +127,7 @@
 				6003F5AF195388D20070C39A /* XCTest.framework */,
 				BC8E886B3ABE855454569250 /* Pods_GFCoreDataSource_Example.framework */,
 				306BF0F3CE881C6974647D8F /* Pods_GFCoreDataSource_Tests.framework */,
+				F3318E607525EF991E527F00 /* Pods_VICoreDataSource_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -151,9 +151,9 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6003F595195388D20070C39A /* GFCoreDataSource-Info.plist */,
+				6003F595195388D20070C39A /* VICoreDataSource-Info.plist */,
 				6003F599195388D20070C39A /* main.m */,
-				6003F59B195388D20070C39A /* GFCoreDataSource-Prefix.pch */,
+				6003F59B195388D20070C39A /* VICoreDataSource-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				CF20B677D4822215136BA3B0 /* GFCoreDataSource.podspec */,
+				CF20B677D4822215136BA3B0 /* VICoreDataSource.podspec */,
 				8DD60754DD7A4AC823E63C03 /* README.md */,
 				ECB9DE2AF2B4AA64EFE9D331 /* LICENSE */,
 				AEA604D01E08189C00058D36 /* .travis.yml */,
@@ -193,8 +193,8 @@
 			children = (
 				892B15E41E21CD3C5469C027 /* Pods-GFCoreDataSource_Example.debug.xcconfig */,
 				4DD9BAC91468D406D550C267 /* Pods-GFCoreDataSource_Example.release.xcconfig */,
-				077BFA3D0610F6EFB9270656 /* Pods-GFCoreDataSource_Tests.debug.xcconfig */,
-				F95FEE6BC592B543A65D298C /* Pods-GFCoreDataSource_Tests.release.xcconfig */,
+				5C221F003BD8AFE8EAEEEEDE /* Pods-VICoreDataSource_Example.debug.xcconfig */,
+				C3D99A788E91709B9864B6C1 /* Pods-VICoreDataSource_Example.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -228,9 +228,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F589195388D20070C39A /* GFCoreDataSource_Example */ = {
+		6003F589195388D20070C39A /* VICoreDataSource_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "GFCoreDataSource_Example" */;
+			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "VICoreDataSource_Example" */;
 			buildPhases = (
 				39712D81FFB8322E60905496 /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
@@ -242,16 +242,15 @@
 			);
 			dependencies = (
 			);
-			name = GFCoreDataSource_Example;
+			name = VICoreDataSource_Example;
 			productName = GFCoreDataSource;
-			productReference = 6003F58A195388D20070C39A /* GFCoreDataSource_Example.app */;
+			productReference = 6003F58A195388D20070C39A /* VICoreDataSource_Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6003F5AD195388D20070C39A /* GFCoreDataSource_Tests */ = {
+		6003F5AD195388D20070C39A /* VICoreDataSource_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "GFCoreDataSource_Tests" */;
+			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "VICoreDataSource_Tests" */;
 			buildPhases = (
-				810035F56CE5846BF4659226 /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
@@ -261,9 +260,9 @@
 			dependencies = (
 				6003F5B4195388D20070C39A /* PBXTargetDependency */,
 			);
-			name = GFCoreDataSource_Tests;
+			name = VICoreDataSource_Tests;
 			productName = GFCoreDataSourceTests;
-			productReference = 6003F5AE195388D20070C39A /* GFCoreDataSource_Tests.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* VICoreDataSource_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -284,7 +283,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "GFCoreDataSource" */;
+			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "VICoreDataSource" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -297,8 +296,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F589195388D20070C39A /* GFCoreDataSource_Example */,
-				6003F5AD195388D20070C39A /* GFCoreDataSource_Tests */,
+				6003F589195388D20070C39A /* VICoreDataSource_Example */,
+				6003F5AD195388D20070C39A /* VICoreDataSource_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -330,18 +329,18 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-GFCoreDataSource_Example/Pods-GFCoreDataSource_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GFCoreDataSource/GFCoreDataSource.framework",
+				"${SRCROOT}/Pods/Target Support Files/Pods-VICoreDataSource_Example/Pods-VICoreDataSource_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/VICoreDataSource/VICoreDataSource.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GFCoreDataSource.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VICoreDataSource.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GFCoreDataSource_Example/Pods-GFCoreDataSource_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VICoreDataSource_Example/Pods-VICoreDataSource_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		39712D81FFB8322E60905496 /* [CP] Check Pods Manifest.lock */ = {
@@ -355,25 +354,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GFCoreDataSource_Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		810035F56CE5846BF4659226 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GFCoreDataSource_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-VICoreDataSource_Example-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -408,7 +389,7 @@
 /* Begin PBXTargetDependency section */
 		6003F5B4195388D20070C39A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* GFCoreDataSource_Example */;
+			target = 6003F589195388D20070C39A /* VICoreDataSource_Example */;
 			targetProxy = 6003F5B3195388D20070C39A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -526,13 +507,13 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 892B15E41E21CD3C5469C027 /* Pods-GFCoreDataSource_Example.debug.xcconfig */;
+			baseConfigurationReference = 5C221F003BD8AFE8EAEEEEDE /* Pods-VICoreDataSource_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N7F69UBB9A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GFCoreDataSource/GFCoreDataSource-Prefix.pch";
-				INFOPLIST_FILE = "GFCoreDataSource/GFCoreDataSource-Info.plist";
+				GCC_PREFIX_HEADER = "GFCoreDataSource/VICoreDataSource-Prefix.pch";
+				INFOPLIST_FILE = "GFCoreDataSource/VICoreDataSource-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.viroyal.testcoredata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -542,13 +523,13 @@
 		};
 		6003F5C1195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DD9BAC91468D406D550C267 /* Pods-GFCoreDataSource_Example.release.xcconfig */;
+			baseConfigurationReference = C3D99A788E91709B9864B6C1 /* Pods-VICoreDataSource_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = N7F69UBB9A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GFCoreDataSource/GFCoreDataSource-Prefix.pch";
-				INFOPLIST_FILE = "GFCoreDataSource/GFCoreDataSource-Info.plist";
+				GCC_PREFIX_HEADER = "GFCoreDataSource/VICoreDataSource-Prefix.pch";
+				INFOPLIST_FILE = "GFCoreDataSource/VICoreDataSource-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = com.viroyal.testcoredata;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -558,7 +539,6 @@
 		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 077BFA3D0610F6EFB9270656 /* Pods-GFCoreDataSource_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -575,14 +555,13 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GFCoreDataSource_Example.app/GFCoreDataSource_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VICoreDataSource_Example.app/VICoreDataSource_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
 		6003F5C4195388D20070C39A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F95FEE6BC592B543A65D298C /* Pods-GFCoreDataSource_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -595,7 +574,7 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GFCoreDataSource_Example.app/GFCoreDataSource_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VICoreDataSource_Example.app/VICoreDataSource_Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -603,7 +582,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6003F585195388D10070C39A /* Build configuration list for PBXProject "GFCoreDataSource" */ = {
+		6003F585195388D10070C39A /* Build configuration list for PBXProject "VICoreDataSource" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5BD195388D20070C39A /* Debug */,
@@ -612,7 +591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "GFCoreDataSource_Example" */ = {
+		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "VICoreDataSource_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,
@@ -621,7 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "GFCoreDataSource_Tests" */ = {
+		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "VICoreDataSource_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,

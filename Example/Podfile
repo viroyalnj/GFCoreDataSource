@@ -2,13 +2,10 @@ platform :ios, '8.1'
 inhibit_all_warnings!
 use_frameworks!
 
-target 'GFCoreDataSource_Example' do
-  pod 'GFCoreDataSource', :path => '../'
+target 'VICoreDataSource_Example' do
+  pod 'VICoreDataSource', :path => '../'
   pod 'Masonry'
 
-  target 'GFCoreDataSource_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end
+
+

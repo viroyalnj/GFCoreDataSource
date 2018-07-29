@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint GFCoreDataSource.podspec' to ensure this is a
+# Be sure to run `pod lib lint VICoreDataSource.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'GFCoreDataSource'
-  s.version          = '0.2.10'
+  s.name             = 'VICoreDataSource'
+  s.version          = '0.3'
   s.summary          = '一个简单的Core Data 操作封装.'
 
 # This description is used to generate tags and improve search results.
@@ -23,19 +23,18 @@ Pod::Spec.new do |s|
 2.写入操作，多线程
                        DESC
 
-  s.homepage         = 'https://github.com/guofengld/GFCoreDataSource'
+  s.homepage         = 'https://github.com/viroyalnj/VICoreDataSource'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'guofengld' => 'guofengld@gmail.com' }
-  s.source           = { :git => 'https://github.com/guofengld/GFCoreDataSource.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/guofengld'
+  s.source           = { :git => 'https://github.com/viroyalnj/VICoreDataSource.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'GFCoreDataSource/**/*'
+  s.source_files = 'VICoreDataSource/**/*'
   
   # s.resource_bundles = {
-  #   'GFCoreDataSource' => ['GFCoreDataSource/Assets/*.png']
+  #   'VICoreDataSource' => ['VICoreDataSource/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
