@@ -1,9 +1,9 @@
-# GFCoreDataSource
+# VICoreDataSource
 
-[![CI Status](http://img.shields.io/travis/guofengld/GFCoreDataSource.svg?style=flat)](https://travis-ci.org/guofengld/GFCoreDataSource)
-[![Version](https://img.shields.io/cocoapods/v/GFCoreDataSource.svg?style=flat)](http://cocoapods.org/pods/GFCoreDataSource)
-[![License](https://img.shields.io/cocoapods/l/GFCoreDataSource.svg?style=flat)](http://cocoapods.org/pods/GFCoreDataSource)
-[![Platform](https://img.shields.io/cocoapods/p/GFCoreDataSource.svg?style=flat)](http://cocoapods.org/pods/GFCoreDataSource)
+[![CI Status](http://img.shields.io/travis/viroyalnj/VICoreDataSource.svg?style=flat)](https://travis-ci.org/viroyalnj/VICoreDataSource)
+[![Version](https://img.shields.io/cocoapods/v/VICoreDataSource.svg?style=flat)](http://cocoapods.org/pods/VICoreDataSource)
+[![License](https://img.shields.io/cocoapods/l/VICoreDataSource.svg?style=flat)](http://cocoapods.org/pods/VICoreDataSource)
+[![Platform](https://img.shields.io/cocoapods/p/VICoreDataSource.svg?style=flat)](http://cocoapods.org/pods/VICoreDataSource)
 
 ## Example
 
@@ -13,11 +13,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-GFCoreDataSource is available through [CocoaPods](http://cocoapods.org). To install
+VICoreDataSource is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "GFCoreDataSource"
+pod "VICoreDataSource"
 ```
 
 ## Author
@@ -26,4 +26,4 @@ guofengld, guofengld@gmail.com
 
 ## License
 
-GFCoreDataSource is available under the MIT license. See the LICENSE file for more info.
+VICoreDataSource is available under the MIT license. See the LICENSE file for more info.

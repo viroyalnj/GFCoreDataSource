@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "DataSource.h"
 
-@interface ViewController () < UITableViewDataSource, UITableViewDelegate, GFDataSourceDelegate >
+@interface ViewController () < UITableViewDataSource, UITableViewDelegate, VIDataSourceDelegate >
 
 @property (nonatomic, strong)   UITableView     *boxView;
 @property (nonatomic, strong)   UITableView     *itemView;
@@ -206,19 +206,19 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     return @[delete];
 }
 
-#pragma mark - GFDataSourceDelegate
+#pragma mark - VIDataSourceDelegate
 
-- (void)dataSource:(id<GFDataSource>)dataSource willChangeContentForKey:(NSString *)key {
+- (void)dataSource:(id<VIDataSource>)dataSource willChangeContentForKey:(NSString *)key {
     UITableView *tableView = [key isEqualToString:self.boxDataKey]?self.boxView:self.itemView;
     [tableView beginUpdates];
 }
 
-- (void)dataSource:(id<GFDataSource>)dataSource didChangeContentForKey:(NSString *)key {
+- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(NSString *)key {
     UITableView *tableView = [key isEqualToString:self.boxDataKey]?self.boxView:self.itemView;
     [tableView endUpdates];
 }
 
-- (void)dataSource:(id<GFDataSource>)dataSource
+- (void)dataSource:(id<VIDataSource>)dataSource
   didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex
      forChangeType:(NSFetchedResultsChangeType)type
@@ -238,7 +238,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
 }
 
-- (void)dataSource:(id<GFDataSource>)dataSource
+- (void)dataSource:(id<VIDataSource>)dataSource
    didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath
      forChangeType:(NSFetchedResultsChangeType)type

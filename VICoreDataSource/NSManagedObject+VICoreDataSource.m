@@ -1,14 +1,14 @@
 //
-//  NSManagedObject+GFCoreDataSource.m
+//  NSManagedObject+VICoreDataSource.m
 //  Pods
 //
 //  Created by 熊国锋 on 2017/6/28.
 //
 //
 
-#import "NSManagedObject+GFCoreDataSource.h"
+#import "NSManagedObject+VICoreDataSource.h"
 
-@implementation NSManagedObject (GFCoreDataSource)
+@implementation NSManagedObject (VICoreDataSource)
 
 + (NSString *)entityName {
     return NSStringFromClass([self class]);

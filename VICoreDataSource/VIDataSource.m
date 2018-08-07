@@ -1,14 +1,14 @@
 //
-//  GFDataSource.m
-//  GFCoreDataSource
+//  VIDataSource.m
+//  VICoreDataSource
 //
 //  Created by guofengld on 16/12/12.
 //  Copyright © 2016年 guofengld. All rights reserved.
 //
 
-#import "GFDataSource.h"
+#import "VIDataSource.h"
 
-@interface GFDataSource () < NSFetchedResultsControllerDelegate >
+@interface VIDataSource () < NSFetchedResultsControllerDelegate >
 
 @property (nonatomic, strong)   NSManagedObjectContext          *managedObjectContext;
 @property (nonatomic, strong)   NSPersistentStoreCoordinator    *persistentStoreCoordinator;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation GFDataSource
+@implementation VIDataSource
 
 + (instancetype)sharedClient {
     NSAssert(NO, @"implement this method in your sub-class");
@@ -29,7 +29,7 @@
 }
 
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex coordinator:(NSPersistentStoreCoordinator *)coordinator {
-    if (self = [super init]) {
+    if (self = [self init]) {
         self.managedObjectContext = managedContex;
         self.persistentStoreCoordinator = coordinator;
         
@@ -66,7 +66,7 @@
     return _mapDelegate;
 }
 
-- (void)registerDelegate:(id<GFDataSourceDelegate>)delegate
+- (void)registerDelegate:(id<VIDataSourceDelegate>)delegate
                   entity:(NSString *)entityName
                predicate:(NSPredicate *)predicate
          sortDescriptors:(NSArray<NSSortDescriptor *> *)sortDescriptors
@@ -116,7 +116,7 @@
     return controller;
 }
 
-#pragma mark - GFDataSource
+#pragma mark - VIDataSource
 
 - (NSInteger)numberOfSectionsForKey:(NSString *)key {
     NSFetchedResultsController *fetchedResultsController = [self fetchedResultsControllerForKey:key];
@@ -160,7 +160,7 @@
     [self.dicFetchedResultsController setObject:fetchedResultsController forKey:key];
 }
 
-- (void)setDelegate:(id <GFDataSourceDelegate>)delegate forKey:(NSString *)key {
+- (void)setDelegate:(id <VIDataSourceDelegate>)delegate forKey:(NSString *)key {
     [self.mapDelegate setObject:delegate forKey:key];
 }
 
@@ -168,7 +168,7 @@
     return [self.dicFetchedResultsController objectForKey:key];
 }
 
-- (id <GFDataSourceDelegate>)delegateForKey:(NSString *)key {
+- (id <VIDataSourceDelegate>)delegateForKey:(NSString *)key {
     return [self.mapDelegate objectForKey:key];
 }
 
@@ -182,7 +182,7 @@
     return nil;
 }
 
-- (id <GFDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller {
+- (id <VIDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller {
     NSString *key = [self keyForController:controller];
     id delegate;
     if (key) {
@@ -256,7 +256,13 @@
         }
         
         // 保存
-        [managedObjectContext save:nil];
+        if ([managedObjectContext hasChanges]) {
+            NSError *err;
+            [managedObjectContext save:&err];
+            if (err) {
+                NSLog(@"error: %@", err);
+            }
+        }
     });
 }
 
@@ -308,7 +314,7 @@
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     
     NSString *key = [self keyForController:controller];
-    id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
+    id <VIDataSourceDelegate> delegate = [self delegateForController:controller];
     
     if ([delegate respondsToSelector:@selector(dataSource:willChangeContentForKey:)]) {
         [delegate dataSource:self willChangeContentForKey:key];
@@ -318,7 +324,7 @@
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     
     NSString *key = [self keyForController:controller];
-    id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
+    id <VIDataSourceDelegate> delegate = [self delegateForController:controller];
     
     [delegate dataSource:self didChangeContentForKey:key];
 }
@@ -329,7 +335,7 @@
      forChangeType:(NSFetchedResultsChangeType)type {
     
     NSString *key = [self keyForController:controller];
-    id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
+    id <VIDataSourceDelegate> delegate = [self delegateForController:controller];
     
     if ([delegate respondsToSelector:@selector(dataSource:didChangeSection:atIndex:forChangeType:forKey:)]) {
         [delegate dataSource:self
@@ -347,7 +353,7 @@
       newIndexPath:(NSIndexPath *)newIndexPath {
     
     NSString *key = [self keyForController:controller];
-    id <GFDataSourceDelegate> delegate = [self delegateForController:controller];
+    id <VIDataSourceDelegate> delegate = [self delegateForController:controller];
     
     if ([delegate respondsToSelector:@selector(dataSource:didChangeObject:atIndexPath:forChangeType:newIndexPath:forKey:)]) {
         [delegate dataSource:self

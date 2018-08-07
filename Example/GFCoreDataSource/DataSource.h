@@ -6,7 +6,7 @@
 //  Copyright © 2016年 guofengld. All rights reserved.
 //
 
-#import "GFDataSource.h"
+#import "VIDataSource.h"
 #import "Model+CoreDataModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface DataSource : GFDataSource
+@interface DataSource : VIDataSource
 
 @end
 

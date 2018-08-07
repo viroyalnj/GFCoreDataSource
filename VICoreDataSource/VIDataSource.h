@@ -1,37 +1,37 @@
 //
-//  GFDataSource.h
-//  GFCoreDataSource
+//  VIDataSource.h
+//  VICoreDataSource
 //
 //  Created by guofengld on 16/12/12.
 //  Copyright © 2016年 guofengld. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "NSManagedObject+GFCoreDataSource.h"
+#import "NSManagedObject+VICoreDataSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
-@class GFDataSource;
-@protocol GFDataSource;
+@class VIDataSource;
+@protocol VIDataSource;
 
-@protocol GFDataSourceDelegate <NSObject>
+@protocol VIDataSourceDelegate <NSObject>
 
 //This method is needed
-- (void)dataSource:(id<GFDataSource>)dataSource didChangeContentForKey:(nullable NSString *)key;
+- (void)dataSource:(id<VIDataSource>)dataSource didChangeContentForKey:(nullable NSString *)key;
 
 @optional
 
-- (void)dataSource:(id<GFDataSource>)dataSource willChangeContentForKey:(nullable NSString *)key;
+- (void)dataSource:(id<VIDataSource>)dataSource willChangeContentForKey:(nullable NSString *)key;
 
-- (void)dataSource:(id<GFDataSource>)dataSource
+- (void)dataSource:(id<VIDataSource>)dataSource
   didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
            atIndex:(NSUInteger)sectionIndex
      forChangeType:(NSFetchedResultsChangeType)type
             forKey:(nullable NSString *)key;
 
-- (void)dataSource:(id<GFDataSource>)dataSource
+- (void)dataSource:(id<VIDataSource>)dataSource
    didChangeObject:(id)anObject
        atIndexPath:(NSIndexPath *)indexPath
      forChangeType:(NSFetchedResultsChangeType)type
@@ -40,7 +40,7 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 @end
 
-@protocol GFDataSource <NSObject>
+@protocol VIDataSource <NSObject>
 
 - (NSInteger)numberOfSectionsForKey:(NSString *)key;
 - (NSInteger)numberOfItemsForKey:(NSString *)key inSection:(NSInteger)section;
@@ -50,9 +50,9 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 
 @end
 
-@interface GFDataSource : NSObject < GFDataSource >
+@interface VIDataSource : NSObject < VIDataSource >
 
-@property (nonatomic, weak)     id<GFDataSourceDelegate>        delegate;
+@property (nonatomic, weak)     id<VIDataSourceDelegate>        delegate;
 @property (nonatomic, readonly) NSManagedObjectContext          *managedObjectContext;
 @property (nonatomic, readonly) NSPersistentStoreCoordinator    *persistentStoreCoordinator;
 
@@ -61,7 +61,7 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
 - (instancetype)initWithManagedObjectContext:(NSManagedObjectContext *)managedContex
                                  coordinator:(nullable NSPersistentStoreCoordinator *)coordinator;
 
-- (void)registerDelegate:(id<GFDataSourceDelegate>)delegate
+- (void)registerDelegate:(id<VIDataSourceDelegate>)delegate
                   entity:(nonnull NSString *)entityName
                predicate:(nullable NSPredicate *)predicate
          sortDescriptors:(nonnull NSArray<NSSortDescriptor *>*)sortDescriptors
@@ -69,9 +69,9 @@ typedef void (^CommonBlock)(BOOL success, NSDictionary * _Nullable info);
                      key:(NSString *)key;
 
 - (NSFetchedResultsController *)fetchedResultsControllerForKey:(NSString *)key;
-- (id<GFDataSourceDelegate>)delegateForKey:(NSString *)key;
+- (id<VIDataSourceDelegate>)delegateForKey:(NSString *)key;
 - (nullable NSString *)keyForController:(NSFetchedResultsController *)controller;
-- (id<GFDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller;
+- (id<VIDataSourceDelegate>)delegateForController:(NSFetchedResultsController *)controller;
 - (NSEnumerator <NSFetchedResultsController *> *)fetchedResultsControllerEnumerator;
 
 - (void)addObject:(id)object
